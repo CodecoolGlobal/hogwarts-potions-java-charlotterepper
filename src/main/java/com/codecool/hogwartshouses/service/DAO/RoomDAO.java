@@ -8,4 +8,5 @@ public interface RoomDAO {
     Set<Room> getAllRooms();
     void addRoom(Room room);
     Room getRoom(int id);
+    void deleteRoom(int id);
 }

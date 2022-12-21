@@ -33,4 +33,13 @@ public class RoomMemory implements RoomDAO {
                 .collect(Collectors.toList());
         return roomList.get(0);
     }
+
+    @Override
+    public void deleteRoom(int id) {
+        List<Room> roomList = rooms.stream()
+                .filter(room -> room.getId() == id)
+                .collect(Collectors.toList());
+        Room room = roomList.get(0);
+        rooms.remove(room);
+    }
 }

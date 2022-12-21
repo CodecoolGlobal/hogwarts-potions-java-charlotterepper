@@ -5,10 +5,7 @@ import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
@@ -42,5 +39,11 @@ public class GreetingController {
     public String getRoom(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("room", roomMemory.getRoom(id));
         return "room";
+    }
+
+    @DeleteMapping("/rooms/{id}")
+    public String deleteRoom(@PathVariable Integer id) {
+        roomMemory.deleteRoom(id);
+        return "redirect:";
     }
 }
