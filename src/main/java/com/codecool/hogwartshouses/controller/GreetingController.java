@@ -1,5 +1,6 @@
 package com.codecool.hogwartshouses.controller;
 
+import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class GreetingController {
     }
 
     @PostMapping("/rooms")
-    public void createRoom() {
+    public void createRoom(@RequestParam("create-room") Room newRoom) {
 
     }
 }

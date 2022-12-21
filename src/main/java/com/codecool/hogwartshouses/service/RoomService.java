@@ -15,6 +15,7 @@ public class RoomService {
 
     private final RoomCreator roomCreator;
     private final RoomMemory roomMemory;
+    private final int MAX_AMOUNT_ROOMS = 20;
 
     RoomService (RoomCreator roomCreator, RoomDAO roomDAO, RoomMemory roomMemory) {
         this.roomCreator = roomCreator;
@@ -24,9 +25,13 @@ public class RoomService {
     }
 
     public void createAndAddRooms() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < MAX_AMOUNT_ROOMS; i++) {
             roomCreator.initialize();
         }
+    }
+
+    public void createAndAddRoom() {
+        roomCreator.initialize();
     }
 
 }

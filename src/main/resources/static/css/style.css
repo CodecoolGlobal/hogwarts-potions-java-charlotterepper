@@ -35,7 +35,6 @@ button:hover {
 
 .container {
     display: flex;
-    text-align: left;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;

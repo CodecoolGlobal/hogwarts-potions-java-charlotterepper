@@ -14,7 +14,7 @@
     <div th:class="room" th:each="room: ${rooms}">
         <h2 th:text="${room.name}"></h2>
         <p>House: <span th:text="${room.houseType}"></span></p>
-        <p>Capacity: <span th:text="${room.amountOfStudents}"></span> students</p>
+        <p>Capacity: <span th:text="${room.amountOfStudents}"></span> student(s)</p>
     </div>
 </div>
 </body>
