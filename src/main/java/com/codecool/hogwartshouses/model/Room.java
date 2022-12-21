@@ -12,10 +12,12 @@ public class Room {
     private int id;
     private String name;
     private HouseType houseType;
+    private int amountOfStudents;
 
-    public Room(int id, String name, HouseType houseType) {
+    public Room(int id, String name, HouseType houseType, int amountOfStudents) {
         this.id = id;
         this.name = name;
         this.houseType = houseType;
+        this.amountOfStudents = amountOfStudents;
     }
 }

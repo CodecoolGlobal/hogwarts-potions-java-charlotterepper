@@ -22,7 +22,7 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType()));
+        roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType(), new Random().nextInt(10 - 1) + 1));
     }
 
     public HouseType getRandomHouseType() {

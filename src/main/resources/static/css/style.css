@@ -7,10 +7,30 @@ body {
 }
 
 nav {
+    display: flex;
     color: #29383F;
     background-color: rgba(102, 125, 146, 0.5);
     padding: 25px;
     margin-bottom: 50px;
+}
+
+.heading {
+    font-size: 34px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    color: #29383F;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #eefafc;
 }
 
 .container {
@@ -20,6 +40,10 @@ nav {
     justify-content: center;
     gap: 50px;
     color: #d9f5f8;
+}
+
+.container h2 {
+    margin-top: 0;
 }
 
 .room {

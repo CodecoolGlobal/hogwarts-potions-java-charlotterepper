@@ -7,12 +7,14 @@
 </head>
 <body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
 <nav>
-    <h1>All Rooms</h1>
+    <span th:class="heading">All Rooms</span>
+    <button th:class="create-room">Create Room</button>
 </nav>
 <div th:class="container">
     <div th:class="room" th:each="room: ${rooms}">
-        <p th:text="${room.name}"></p>
-        <p th:text="${room.houseType}"></p>
+        <h2 th:text="${room.name}"></h2>
+        <p>House: <span th:text="${room.houseType}"></span></p>
+        <p>Capacity: <span th:text="${room.amountOfStudents}"></span> students</p>
     </div>
 </div>
 </body>
