@@ -11,7 +11,7 @@ public class RoomCreator {
     RoomMemory roomMemory;
 
     public void initialize() {
-    //TODO
+        //TODO
     }
 
     public RoomCreator() {

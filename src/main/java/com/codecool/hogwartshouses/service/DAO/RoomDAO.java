@@ -6,4 +6,5 @@ import java.util.Set;
 
 public interface RoomDAO {
     Set<Room> getAllRooms();
+    void addRoom(Room room);
 }
