@@ -6,6 +6,12 @@
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
-    <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
+<h1>All Rooms</h1>
+<div th:class="container">
+    <div th:class="room" th:each="room: ${rooms}">
+        <p th:text="${room.name}"></p>
+        <p th:text="${room.houseType}"></p>
+    </div>
+</div>
 </body>
 </html>

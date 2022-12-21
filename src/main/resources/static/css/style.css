@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    color: #29383F;
+}
+
+.container {
+    display: flex;
+    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    color: #d9f5f8;
+}
+
+.room {
+    background-color: #374a5b;
+    /*border-radius: 8px;*/
+    border: 5px solid #98B6CE;
+    padding: 10px;
+}
+
