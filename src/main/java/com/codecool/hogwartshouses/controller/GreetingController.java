@@ -6,8 +6,11 @@ import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.websocket.server.PathParam;
 
 @Controller
 public class GreetingController {
@@ -33,5 +36,11 @@ public class GreetingController {
     @PostMapping("/rooms")
     public void createRoom(@RequestParam("create-room") Room newRoom) {
 
+    }
+
+    @GetMapping("/rooms/{id}")
+    public String getRoom(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("room", roomMemory.getRoom(id));
+        return "room";
     }
 }

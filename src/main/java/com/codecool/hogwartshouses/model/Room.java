@@ -20,4 +20,20 @@ public class Room {
         this.houseType = houseType;
         this.amountOfStudents = amountOfStudents;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public HouseType getHouseType() {
+        return houseType;
+    }
+
+    public int getAmountOfStudents() {
+        return amountOfStudents;
+    }
 }
