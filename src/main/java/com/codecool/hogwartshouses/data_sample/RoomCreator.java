@@ -14,11 +14,15 @@ public class RoomCreator {
     private int id = 0;
     private final Faker faker = new Faker();
 
-    private RoomMemory roomMemory;
+    private final RoomMemory roomMemory;
 
     public RoomCreator(RoomMemory roomMemory) {
         this.roomMemory = roomMemory;
         initialize();
+    }
+
+    public Room createCustomRoom(String name, HouseType houseType, int capacity) {
+        return new Room(id++, name, houseType, capacity);
     }
 
     public void initialize() {

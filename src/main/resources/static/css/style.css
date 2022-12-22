@@ -24,7 +24,7 @@ p {
     font-size: 18px;
 }
 
-a, button {
+a, button, #delete-btn {
     padding: 10px;
     border-radius: 5px;
     border: 0;
@@ -37,8 +37,12 @@ a, button {
     font-family: Serif, serif;
 }
 
-a:hover, button:hover {
+a:hover, button:hover, #delete-btn:hover {
     background-color: #eefafc;
+}
+
+#delete-btn {
+    width: 10vw;
 }
 
 /* Flexbox */
@@ -49,6 +53,7 @@ a:hover, button:hover {
     justify-content: center;
     gap: 50px;
     color: #d9f5f8;
+    padding-bottom: 50px;
 }
 
 .container h2 {
@@ -64,7 +69,7 @@ a:hover, button:hover {
 
 /* Form Data */
 
-input {
+input, select {
     padding: 10px;
     border: none;
     margin: 25px 0 25px 0;

@@ -19,7 +19,7 @@
 
         <form th:method="delete" th:action="@{/rooms/{id}(id=${room.id})}">
             <input type="hidden" name="_method" value="delete">
-            <input value="Delete Room" th:type="submit">
+            <input id="delete-btn" value="Delete Room" th:type="submit">
         </form>
     </div>
 </div>
