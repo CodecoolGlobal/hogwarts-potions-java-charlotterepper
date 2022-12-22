@@ -44,12 +44,7 @@ public class GreetingController {
 
     @PostMapping("/rooms/create-room")
     public String createRoom(@RequestBody MultiValueMap<String, String> map) {
-        HouseType houseType = null;
-        for (HouseType type : HouseType.values()) {
-            if (type.getHouseName().equalsIgnoreCase(map.get("room-house").get(0))) {
-                houseType = type;
-            }
-        }
+        HouseType houseType = getHouseType(map);
         int capacity = Integer.parseInt(map.get("room-capacity").get(0));
         Room newRoom = roomCreator.createCustomRoom(map.get("room-name").get(0), houseType, capacity);
         roomMemory.addRoom(newRoom);
@@ -70,14 +65,19 @@ public class GreetingController {
 
     @PostMapping("/rooms/{id}")
     public String updateRoom(@PathVariable Integer id, @RequestBody MultiValueMap<String, String> map) {
+        HouseType houseType = getHouseType(map);
+        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
+        roomService.updateRoom(id, map.get("room-name").get(0), houseType, capacity);
+        return "redirect:";
+    }
+
+    public HouseType getHouseType(MultiValueMap<String, String> map) {
         HouseType houseType = null;
         for (HouseType type : HouseType.values()) {
             if (type.getHouseName().equalsIgnoreCase(map.get("room-house").get(0))) {
                 houseType = type;
             }
         }
-        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
-        roomService.updateRoom(id, map.get("room-name").get(0), houseType, capacity);
-        return "redirect:";
+        return houseType;
     }
 }
