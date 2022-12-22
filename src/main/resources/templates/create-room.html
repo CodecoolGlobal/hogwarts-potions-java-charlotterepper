@@ -11,11 +11,11 @@
     <a href="/rooms" th:class="all-rooms-btn">All rooms</a>
 </nav>
 <div th:class="container">
-    <form th:class="create-room-form" action="/rooms/create-room" method="POST">
+    <form id="room-form" th:class="create-room-form" action="/rooms/create-room" method="POST">
         <label for="room-name">Room Name:</label> <br>
         <input type="text" name="room-name" id="room-name" required> <br>
         <label for="room-house">Hogwarts House:</label> <br>
-        <select name="room-house" id="room-house" form="room-house">
+        <select name="room-house" id="room-house" form="room-form">
             <option value="gryffindor">Gryffindor</option>
             <option value="hufflepuff">Hufflepuff</option>
             <option value="ravenclaw">Ravenclaw</option>

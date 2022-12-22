@@ -7,6 +7,7 @@ import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -40,16 +41,15 @@ public class GreetingController {
     }
 
     @PostMapping("/rooms/create-room")
-    public String createRoom(@RequestParam("room-name") String roomName, @RequestParam(value="room-house", required = false) String roomHouse,
-                           @RequestParam("room-capacity") String roomCapacity) {
+    public String createRoom(@RequestBody MultiValueMap<String, String> map) {
         HouseType houseType = null;
         for (HouseType type : HouseType.values()) {
-            if (type.getHouseName().equalsIgnoreCase(roomHouse)) {
+            if (type.getHouseName().equalsIgnoreCase(map.get("room-house").get(0))) {
                 houseType = type;
             }
         }
-        int capacity = Integer.parseInt(roomCapacity);
-        Room newRoom = roomCreator.createCustomRoom(roomName, houseType, capacity);
+        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
+        Room newRoom = roomCreator.createCustomRoom(map.get("room-name").get(0), houseType, capacity);
         roomMemory.addRoom(newRoom);
         return "redirect:";
     }
