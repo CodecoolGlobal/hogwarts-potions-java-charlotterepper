@@ -8,7 +8,7 @@
 <body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
 <nav>
     <span th:class="heading">All Rooms</span>
-    <button th:class="create-room">Create Room</button>
+    <a href="/rooms/create-room" th:class="create-room-btn">Create Room</a>
 </nav>
 <div th:class="container">
     <div th:class="room" th:each="room: ${rooms}">

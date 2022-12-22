@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
+<nav>
+    <span th:class="heading">Create New Room</span>
+    <a href="/rooms" th:class="all-rooms-btn">All rooms</a>
+</nav>
+<div th:class="container">
+    <form th:class="create-room-form" action="/rooms/create-room" method="POST">
+        <label for="room-name">Room Name:</label> <br>
+        <input type="text" name="room-name" id="room-name" required> <br>
+        <label for="room-house">Hogwarts House:</label> <br>
+        <input type="text" name="room-house" id="room-house" required> <br>
+        <label for="room-capacity">Room Capacity:</label> <br>
+        <input type="number" name="room-capacity" id="room-capacity" required> <br>
+        <button type="submit">Create room</button>
+    </form>
+
+</div>
+</body>
+</html>

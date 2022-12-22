@@ -30,7 +30,12 @@ public class GreetingController {
         return "rooms";
     }
 
-    @PostMapping("/rooms")
+    @GetMapping("/rooms/create-room")
+    public String getCreateRoom() {
+        return "create-room";
+    }
+
+    @PostMapping("/rooms/create-room")
     public void createRoom(@RequestParam("create-room") Room newRoom) {
 
     }
