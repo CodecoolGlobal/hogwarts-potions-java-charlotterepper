@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
+<nav>
+    <span th:class="heading">Add student</span>
+    <a href="/students" th:class="all-rooms-btn">All students</a>
+</nav>
+<div th:class="container">
+    <form id="student-form" th:class="create-room-form" action="/students/add-student" method="POST">
+        <label for="student-first-name">First Name:</label> <br>
+        <input type="text" name="student-first-name" id="student-first-name" required> <br>
+        <label for="student-last-name">Last Name:</label> <br>
+        <input type="text" name="student-last-name" id="student-last-name" required> <br>
+        <label for="room-house">Hogwarts House:</label> <br>
+        <select name="room-house" id="room-house" form="student-form">
+            <option value="gryffindor">Gryffindor</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="ravenclaw">Ravenclaw</option>
+            <option value="slytherin">Slytherin</option>
+        </select> <br>
+        <button type="submit">Add Student</button>
+    </form>
+
+</div>
+</body>
+</html>

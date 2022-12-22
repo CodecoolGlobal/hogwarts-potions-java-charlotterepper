@@ -5,6 +5,7 @@ import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.codecool.hogwartshouses.service.RoomService;
+import com.codecool.hogwartshouses.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -17,11 +18,13 @@ public class GreetingController {
     private final RoomMemory roomMemory;
     private final RoomCreator roomCreator;
     private final RoomService roomService;
+    private final StudentService studentService;
 
-    GreetingController(RoomMemory roomMemory, RoomCreator roomCreator, RoomService roomService) {
+    GreetingController(RoomMemory roomMemory, RoomCreator roomCreator, RoomService roomService, StudentService studentService) {
         this.roomMemory = roomMemory;
         this.roomCreator = roomCreator;
         this.roomService = roomService;
+        this.studentService = studentService;
     }
 
     @GetMapping("/")
@@ -79,5 +82,23 @@ public class GreetingController {
             }
         }
         return houseType;
+    }
+
+    @GetMapping("/students")
+    public String allStudents(Model model) {
+        model.addAttribute("students", studentService.getAllStudents());
+        return "students";
+    }
+
+    @GetMapping("/students/add-student")
+    public String getAddStudent() {
+        return "add-student";
+    }
+
+    @PostMapping("/students/add-student")
+    public String addStudent(@RequestBody MultiValueMap<String, String> map) {
+        HouseType houseType = getHouseType(map);
+        studentService.createAndAddStudent(map.get("student-first-name").get(0), map.get("student-last-name").get(0), houseType);
+        return "redirect:";
     }
 }

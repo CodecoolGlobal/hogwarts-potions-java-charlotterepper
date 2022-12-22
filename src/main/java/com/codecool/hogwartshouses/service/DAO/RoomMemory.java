@@ -1,8 +1,6 @@
 package com.codecool.hogwartshouses.service.DAO;
 
-import com.codecool.hogwartshouses.data_sample.RoomCreator;
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.HouseType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.github.javafaker.Faker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
@@ -30,7 +29,8 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType(), new Random().nextInt(10 - 1) + 1));
+        roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType(),
+                new Random().nextInt(10 - 1) + 1));
     }
 
     public HouseType getRandomHouseType() {
