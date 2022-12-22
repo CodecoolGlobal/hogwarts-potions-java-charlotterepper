@@ -11,7 +11,7 @@ import java.util.Random;
 
 @Component
 public class RoomCreator {
-    private int id = 0;
+    private int id = 1;
     private final Faker faker = new Faker();
 
     private final RoomMemory roomMemory;
@@ -23,6 +23,10 @@ public class RoomCreator {
 
     public Room createCustomRoom(String name, HouseType houseType, int capacity) {
         return new Room(id++, name, houseType, capacity);
+    }
+
+    public Room createCustomRoomWithId(int id, String name, HouseType houseType, int capacity) {
+        return new Room(id, name, houseType, capacity);
     }
 
     public void initialize() {

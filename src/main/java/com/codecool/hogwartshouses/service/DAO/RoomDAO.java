@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.service.DAO;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.types.HouseType;
 
 import java.util.Set;
 

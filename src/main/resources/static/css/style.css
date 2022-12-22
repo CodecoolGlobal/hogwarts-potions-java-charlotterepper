@@ -67,6 +67,10 @@ a:hover, button:hover, #delete-btn:hover {
     padding: 25px;
 }
 
+#delete-btn {
+    margin: 0;
+}
+
 /* Form Data */
 
 input, select {

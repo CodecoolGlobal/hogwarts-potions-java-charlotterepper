@@ -2,6 +2,7 @@ package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.data_sample.RoomCreator;
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ public class RoomService {
 
     public void createAndAddRoom() {
         roomCreator.initialize();
+    }
+
+    public void updateRoom(int id, String name, HouseType houseType, int capacity) {
+        roomMemory.deleteRoom(id);
+        Room room = roomCreator.createCustomRoomWithId(id, name, houseType, capacity);
+        roomMemory.addRoom(room);
     }
 
 }

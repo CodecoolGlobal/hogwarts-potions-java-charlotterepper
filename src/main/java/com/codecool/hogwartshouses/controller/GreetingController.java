@@ -16,10 +16,12 @@ import javax.websocket.server.PathParam;
 public class GreetingController {
     private final RoomMemory roomMemory;
     private final RoomCreator roomCreator;
+    private final RoomService roomService;
 
-    GreetingController(RoomMemory roomMemory, RoomCreator roomCreator) {
+    GreetingController(RoomMemory roomMemory, RoomCreator roomCreator, RoomService roomService) {
         this.roomMemory = roomMemory;
         this.roomCreator = roomCreator;
+        this.roomService = roomService;
     }
 
     @GetMapping("/")
@@ -63,6 +65,19 @@ public class GreetingController {
     @DeleteMapping("/rooms/{id}")
     public String deleteRoom(@PathVariable Integer id) {
         roomMemory.deleteRoom(id);
+        return "redirect:";
+    }
+
+    @PostMapping("/rooms/{id}")
+    public String updateRoom(@PathVariable Integer id, @RequestBody MultiValueMap<String, String> map) {
+        HouseType houseType = null;
+        for (HouseType type : HouseType.values()) {
+            if (type.getHouseName().equalsIgnoreCase(map.get("room-house").get(0))) {
+                houseType = type;
+            }
+        }
+        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
+        roomService.updateRoom(id, map.get("room-name").get(0), houseType, capacity);
         return "redirect:";
     }
 }

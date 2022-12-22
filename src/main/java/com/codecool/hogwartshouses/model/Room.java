@@ -9,19 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Room {
-    private int id;
+    private Integer id;
     private String name;
     private HouseType houseType;
-    private int amountOfStudents;
+    private Integer capacity;
 
-    public Room(int id, String name, HouseType houseType, int amountOfStudents) {
+    public Room(Integer id, String name, HouseType houseType, Integer amountOfStudents) {
         this.id = id;
         this.name = name;
         this.houseType = houseType;
-        this.amountOfStudents = amountOfStudents;
+        this.capacity = amountOfStudents;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class Room {
         return houseType;
     }
 
-    public int getAmountOfStudents() {
-        return amountOfStudents;
+    public Integer getCapacity() {
+        return capacity;
     }
 }
