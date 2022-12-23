@@ -13,12 +13,14 @@ public class Room {
     private String name;
     private HouseType houseType;
     private Integer capacity;
+    private Boolean empty;
 
-    public Room(Integer id, String name, HouseType houseType, Integer amountOfStudents) {
+    public Room(Integer id, String name, HouseType houseType, Integer capacity, Boolean empty) {
         this.id = id;
         this.name = name;
         this.houseType = houseType;
-        this.capacity = amountOfStudents;
+        this.capacity = capacity;
+        this.empty = empty;
     }
 
     public Integer getId() {
@@ -35,5 +37,9 @@ public class Room {
 
     public Integer getCapacity() {
         return capacity;
+    }
+
+    public Boolean isEmpty() {
+        return empty;
     }
 }

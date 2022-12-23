@@ -11,26 +11,29 @@ import java.util.Random;
 @Component
 public class RoomCreator {
     private int id = 1;
-    private final Faker faker = new Faker();
+    private final Faker faker;
+    private Random random;
 
     private final RoomMemory roomMemory;
 
     public RoomCreator(RoomMemory roomMemory) {
         this.roomMemory = roomMemory;
+        faker = new Faker();
+        random = new Random();
         initialize();
     }
 
     public Room createCustomRoom(String name, HouseType houseType, int capacity) {
-        return new Room(id++, name, houseType, capacity);
+        return new Room(id++, name, houseType, capacity, random.nextBoolean());
     }
 
     public Room createCustomRoomWithId(int id, String name, HouseType houseType, int capacity) {
-        return new Room(id, name, houseType, capacity);
+        return new Room(id, name, houseType, capacity, random.nextBoolean());
     }
 
     public void initialize() {
         roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType(),
-                new Random().nextInt(10 - 1) + 1));
+                new Random().nextInt(10 - 1) + 1, random.nextBoolean()));
     }
 
     public HouseType getRandomHouseType() {
