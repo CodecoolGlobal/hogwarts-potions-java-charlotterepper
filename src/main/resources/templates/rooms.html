@@ -15,6 +15,7 @@
         <h2 th:text="${room.name}"></h2>
         <p>House: <span th:text="${room.houseType}"></span></p>
         <p>Capacity: <span th:text="${room.capacity}"></span> student(s)</p>
+        <p th:each="student: ${room.getStudents()}">Students in this room: <span th:text="${student.fullName}"></span></p>
         <p>This room is
             <strong><span th:if="${room.getListSize() == 0}">empty</span></strong>
             <strong><span th:if="${room.getListSize() == room.capacity}">full</span></strong>

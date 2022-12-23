@@ -59,4 +59,11 @@ public class RoomService {
         room.getStudents().add(student);
     }
 
+    // TODO: remove this function --> just for testing purposes
+    public void addStudentToRoom(Student student) {
+        Room room = new Room(222, "Test", HouseType.GRYFFINDOR, 2);
+        roomMemory.addRoom(room);
+        room.getStudents().add(student);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.controller;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.RoomService;
 import com.codecool.hogwartshouses.service.StudentService;
@@ -29,6 +30,7 @@ public class GreetingController {
     @GetMapping("/rooms")
     public String rooms(Model model) {
         model.addAttribute("rooms", roomService.getAllRooms());
+        model.addAttribute("students", studentService.getAllStudents());
         return "rooms";
     }
 
@@ -100,5 +102,13 @@ public class GreetingController {
         HouseType houseType = getHouseType(map);
         studentService.createAndAddStudent(map.get("student-first-name").get(0), map.get("student-last-name").get(0), houseType);
         return "redirect:";
+    }
+
+    // TODO: remove addStudentToRoom() --> just for testing purposes --> unavailable room is not shown on endpoint
+    @GetMapping("/rooms/available")
+    public String getAvailableRooms(Model model) {
+        model.addAttribute("rooms", roomService.getAllRooms());
+        roomService.addStudentToRoom(new Student(232, "Anna", "Miller", HouseType.HUFFLEPUFF));
+        return "available-rooms";
     }
 }
