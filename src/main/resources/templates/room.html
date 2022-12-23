@@ -15,6 +15,7 @@
         <h2 th:text="${room.name}"></h2>
         <p>House: <span th:text="${room.houseType}"></span></p>
         <p>Capacity: <span th:text="${room.capacity}"></span> student(s)</p>
+        <p>This room is <strong><span th:text="${room.isEmpty()}"></span></strong></p>
 
         <form th:method="delete" th:action="@{/rooms/{id}(id=${room.id})}">
             <input type="hidden" name="_method" value="delete">

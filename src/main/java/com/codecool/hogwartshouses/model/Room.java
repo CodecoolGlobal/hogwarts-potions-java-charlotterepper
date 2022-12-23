@@ -39,7 +39,7 @@ public class Room {
         return capacity;
     }
 
-    public Boolean isEmpty() {
-        return empty;
+    public String isEmpty() {
+        return empty ? "empty" : "occupied";
     }
 }
