@@ -85,7 +85,8 @@ public class GreetingController {
     @PostMapping("/students/add-room/{studentId}")
     public String addStudentToRoom(@PathVariable("studentId") String studentId,
                                    @RequestBody MultiValueMap<String, String> map) {
-
+        studentService.addRoom(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
+        roomService.addStudent(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
         return "redirect:";
     }
 

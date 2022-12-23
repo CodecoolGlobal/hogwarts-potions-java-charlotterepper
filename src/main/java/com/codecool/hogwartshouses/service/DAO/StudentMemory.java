@@ -27,13 +27,7 @@ public class StudentMemory implements StudentDAO {
         return students;
     }
 
-    @Override
-    public void addRoom(int studentId, Room room) {
-        Student student = getStudent(studentId);
-        student.setRoom(room);
-    }
-
-    private Student getStudent(int studentId) {
+    public Student getStudent(int studentId) {
         return students.stream()
                 .filter(student -> student.getId() == studentId)
                 .collect(Collectors.toList()).get(0);

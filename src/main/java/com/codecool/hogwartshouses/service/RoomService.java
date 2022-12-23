@@ -2,8 +2,10 @@ package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.data_sample.RoomCreator;
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
+import com.codecool.hogwartshouses.service.DAO.StudentMemory;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -12,16 +14,18 @@ import java.util.Set;
 public class RoomService {
     private final RoomCreator roomCreator;
     private final RoomMemory roomMemory;
+    private final StudentMemory studentMemory;
     private final int MAX_AMOUNT_ROOMS = 20;
 
-    RoomService(RoomCreator roomCreator, RoomMemory roomMemory) {
+    RoomService(RoomCreator roomCreator, RoomMemory roomMemory, StudentMemory studentMemory) {
         this.roomCreator = roomCreator;
         this.roomMemory = roomMemory;
+        this.studentMemory = studentMemory;
         createAndAddRooms();
     }
 
     public void createAndAddRooms() {
-        for (int i = 0; i < MAX_AMOUNT_ROOMS; i++) {
+        for (int i = 0; i <= MAX_AMOUNT_ROOMS; i++) {
             roomCreator.initialize();
         }
     }
@@ -47,6 +51,12 @@ public class RoomService {
 
     public void deleteRoom(int id) {
         roomMemory.deleteRoom(id);
+    }
+
+    public void addStudent(int studentId, int roomId) {
+        Student student = studentMemory.getStudent(studentId);
+        Room room = getRoom(roomId);
+        room.getStudents().add(student);
     }
 
 }

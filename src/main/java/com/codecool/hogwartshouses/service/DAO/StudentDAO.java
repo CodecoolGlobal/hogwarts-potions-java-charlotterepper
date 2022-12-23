@@ -9,5 +9,4 @@ import java.util.Set;
 public interface StudentDAO {
     void addStudent(Student student);
     Set<Student> getAllStudents();
-    void addRoom(int id, Room room);
 }
