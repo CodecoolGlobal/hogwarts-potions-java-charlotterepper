@@ -58,6 +58,10 @@ a:hover, button:hover, #delete-btn:hover {
     align-items: center;
 }
 
+#normal-direction {
+    flex-direction: column;
+}
+
 .container h2 {
     margin-top: 0;
 }

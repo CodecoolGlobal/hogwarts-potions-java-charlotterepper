@@ -10,7 +10,7 @@
     <span th:class="heading">Room #<span th:class="heading" th:text="${room.id}"></span></span>
     <a href="/rooms" th:class="all-rooms-btn">All rooms</a>
 </nav>
-<div th:class="container">
+<div th:class="container" th:id="normal-direction">
     <div th:class="room">
         <h2 th:text="${room.name}"></h2>
         <p>House: <span th:text="${room.houseType}"></span></p>
