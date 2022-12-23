@@ -18,7 +18,7 @@
         <form id="room-form" th:class="create-room-form" th:action="@{/students/{id}(id=${student.id})}" method="POST">
             <label for="student-room">Room:</label> <br>
             <select name="student-room" id="student-room" form="room-form">
-                <span th:each="room: ${rooms}" th:if="${room.getListSize() == 0}">
+                <span th:each="room: ${rooms}" th:if="${room.getListSize() == 0 || room.getListSize() < room.capacity}">
                     <option th:value="${room.id}" th:text="${room.name}"></option>
                 </span>
             </select> <br>
