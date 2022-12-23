@@ -6,6 +6,8 @@ import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class RoomService {
     private final RoomCreator roomCreator;
@@ -24,10 +26,27 @@ public class RoomService {
         }
     }
 
+    public void createAndAddRoom(String name, HouseType houseType, int capacity) {
+        Room room = roomCreator.createCustomRoom(name, houseType, capacity);
+        roomMemory.addRoom(room);
+    }
+
     public void updateRoom(int id, String name, HouseType houseType, int capacity) {
         roomMemory.deleteRoom(id);
         Room room = roomCreator.createCustomRoomWithId(id, name, houseType, capacity);
         roomMemory.addRoom(room);
+    }
+
+    public Set<Room> getAllRooms() {
+        return roomMemory.getAllRooms();
+    }
+
+    public Room getRoom(int id) {
+        return roomMemory.getRoom(id);
+    }
+
+    public void deleteRoom(int id) {
+        roomMemory.deleteRoom(id);
     }
 
 }
