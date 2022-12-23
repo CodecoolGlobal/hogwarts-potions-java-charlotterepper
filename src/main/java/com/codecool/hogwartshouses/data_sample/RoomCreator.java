@@ -24,16 +24,16 @@ public class RoomCreator {
     }
 
     public Room createCustomRoom(String name, HouseType houseType, int capacity) {
-        return new Room(id++, name, houseType, capacity, random.nextBoolean());
+        return new Room(id++, name, houseType, capacity);
     }
 
     public Room createCustomRoomWithId(int id, String name, HouseType houseType, int capacity) {
-        return new Room(id, name, houseType, capacity, random.nextBoolean());
+        return new Room(id, name, houseType, capacity);
     }
 
     public void initialize() {
         roomMemory.addRoom(new Room(id++, faker.harryPotter().location() + " Room", getRandomHouseType(),
-                new Random().nextInt(10 - 1) + 1, random.nextBoolean()));
+                new Random().nextInt(10 - 1) + 1));
     }
 
     public HouseType getRandomHouseType() {

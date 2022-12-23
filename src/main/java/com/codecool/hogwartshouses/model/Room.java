@@ -1,45 +1,29 @@
 package com.codecool.hogwartshouses.model;
 
 import com.codecool.hogwartshouses.model.types.HouseType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Room {
+    @NonNull
     private Integer id;
+    @NonNull
     private String name;
+    @NonNull
     private HouseType houseType;
+    @NonNull
     private Integer capacity;
-    private Boolean empty;
 
-    public Room(Integer id, String name, HouseType houseType, Integer capacity, Boolean empty) {
-        this.id = id;
-        this.name = name;
-        this.houseType = houseType;
-        this.capacity = capacity;
-        this.empty = empty;
-    }
+    private List<Student> students = new ArrayList<>();
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public HouseType getHouseType() {
-        return houseType;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public String isEmpty() {
-        return empty ? "empty" : "occupied";
+    public int getListSize() {
+        return students.size();
     }
 }

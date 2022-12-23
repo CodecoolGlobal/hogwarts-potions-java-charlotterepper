@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.data_sample.StudentCreator;
+import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.StudentMemory;
@@ -32,6 +33,10 @@ public class StudentService {
 
     public Set<Student> getAllStudents() {
         return studentMemory.getAllStudents();
+    }
+
+    public void addRoom(int studentId, Room room) {
+        studentMemory.addRoom(studentId, room);
     }
 
 }

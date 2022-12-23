@@ -1,43 +1,25 @@
 package com.codecool.hogwartshouses.model;
 
 import com.codecool.hogwartshouses.model.types.HouseType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Student {
+    @NonNull
     private Integer id;
+    @NonNull
     private String firstName;
+    @NonNull
     private String lastName;
+    @NonNull
     private HouseType houseType;
-
-    public Student(Integer id, String firstName, String lastName, HouseType houseType) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.houseType = houseType;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
+    private Room room;
 
     public String getFullName() {
         return firstName + " " + lastName;
-    }
-
-    public HouseType getHouseType() {
-        return houseType;
     }
 }

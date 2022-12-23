@@ -15,7 +15,11 @@
         <h2 th:text="${room.name}"></h2>
         <p>House: <span th:text="${room.houseType}"></span></p>
         <p>Capacity: <span th:text="${room.capacity}"></span> student(s)</p>
-        <p>This room is <strong><span th:text="${room.isEmpty()}"></span></strong></p>
+        <p>This room is
+            <strong><span th:if="${room.getListSize() == 0}">empty</span></strong>
+            <strong><span th:if="${room.getListSize() == room.capacity}">full</span></strong>
+            <strong><span th:if="${room.getListSize() > 0 && room.getListSize() < room.capacity}">occupied</span></strong>
+        </p>
         <a th:href="@{/rooms/{id}(id=${room.id})}" th:id="all-rooms-btn">Room Details</a>
     </div>
 </div>

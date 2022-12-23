@@ -14,7 +14,18 @@
     <div th:class="room" th:each="student: ${students}">
         <h2 th:text="${student.fullName}"></h2>
         <p>House: <span th:text="${student.houseType}"></span></p>
+
+        <form id="room-form" th:class="create-room-form" th:action="@{/students/{id}(id=${student.id})}" method="POST">
+            <label for="student-room">Room:</label> <br>
+            <select name="student-room" id="student-room" form="room-form">
+                <span th:each="room: ${rooms}" th:if="${room.getListSize() == 0}">
+                    <option th:value="${room.id}" th:text="${room.name}"></option>
+                </span>
+            </select> <br>
+            <button type="submit">Select Room</button>
+        </form>
     </div>
+
 </div>
 </body>
 </html>

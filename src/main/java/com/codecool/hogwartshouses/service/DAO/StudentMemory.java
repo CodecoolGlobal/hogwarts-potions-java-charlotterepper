@@ -1,9 +1,12 @@
 package com.codecool.hogwartshouses.service.DAO;
 
+import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentMemory implements StudentDAO {
@@ -23,4 +26,18 @@ public class StudentMemory implements StudentDAO {
     public Set<Student> getAllStudents() {
         return students;
     }
+
+    @Override
+    public void addRoom(int studentId, Room room) {
+        Student student = getStudent(studentId);
+        student.setRoom(room);
+    }
+
+    private Student getStudent(int studentId) {
+        return students.stream()
+                .filter(student -> student.getId() == studentId)
+                .collect(Collectors.toList()).get(0);
+    }
+
+
 }

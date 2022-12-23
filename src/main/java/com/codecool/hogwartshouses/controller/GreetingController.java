@@ -1,5 +1,6 @@
 package com.codecool.hogwartshouses.controller;
 
+import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.RoomService;
 import com.codecool.hogwartshouses.service.StudentService;
@@ -77,7 +78,15 @@ public class GreetingController {
     @GetMapping("/students")
     public String allStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
+        model.addAttribute("rooms", roomService.getAllRooms());
         return "students";
+    }
+
+    @PostMapping("/students/add-room/{studentId}")
+    public String addStudentToRoom(@PathVariable("studentId") String studentId,
+                                   @RequestBody MultiValueMap<String, String> map) {
+
+        return "redirect:";
     }
 
     @GetMapping("/students/add-student")
