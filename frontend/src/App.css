@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  color: #29383F;
+  background-color: rgba(102, 125, 146, 0.5);
+  padding: 25px;
+  margin-bottom: 50px;
+}
+
+.heading {
+  font-size: 34px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a, button, #delete-btn {
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  color: #29383F;
+  background-color: #fffffa;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: Serif, serif;
+}
+
+a:hover, button:hover, #delete-btn:hover {
+  background-color: #eefafc;
+}
+
+#delete-btn {
+  width: 10vw;
+}
+
+/* Flexbox */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  color: #d9f5f8;
+  padding-bottom: 50px;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+#normal-direction {
+  flex-direction: column;
+}
+
+.container h2 {
+  margin-top: 0;
+}
+
+.room {
+  width: 80%;
+  border-radius: 5px;
+  background-color: #374a5b;
+  padding: 25px;
+}
+
+#delete-btn {
+  margin: 0;
+}
+
+/* Form Data */
+
+input, select {
+  padding: 10px;
+  border: none;
+  margin: 25px 0 25px 0;
+  width: 40vw;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: Serif, serif;
+  background-color: #fffffa;
+}
+
+label {
+  color: #d9f5f8;
+  font-weight: bold;
+  margin: 25px 0 25px 0;
+  font-size: 18px;
+}
+
+.create-room-form {
+  background-color: #374a5b;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+#room-capacity {
+  width: 5vw;
+}
+
