@@ -20,7 +20,7 @@ public class RoomService {
         //TODO
     }
 
-    public void addStudentToRoom(String roomName, String firstName, String lastName) {
+    public void addStudentToRoom(Long roomId, Long studentId) {
         //TODO
     }
 

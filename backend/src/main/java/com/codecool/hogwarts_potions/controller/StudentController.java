@@ -1,13 +1,11 @@
 package com.codecool.hogwarts_potions.controller;
 
-import com.codecool.hogwarts_potions.model.HouseType;
-import com.codecool.hogwarts_potions.model.PetType;
 import com.codecool.hogwarts_potions.model.Student;
 import com.codecool.hogwarts_potions.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

@@ -13,18 +13,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"first_name", "last_name"})})
 public class Student {
 
-    @JsonIgnore
+//    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
-    @Column(name = "first_name")
     private String firstName;
     @NonNull
-    @Column(name = "last_name")
     private String lastName;
     @NonNull
     private HouseType houseType;
