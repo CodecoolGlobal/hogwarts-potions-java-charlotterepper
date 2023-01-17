@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 
 export default function Rooms() {
     const [room, setRoom] = useState(null);
-    const roomLink = "http://localhost:3000/rooms/";
     const allRoomsEndpoint = "http://localhost:8080/rooms/";
     const {id} = useParams();
 

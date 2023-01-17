@@ -56,13 +56,8 @@ public class RoomController {
         return new RedirectView("http://localhost:3000/rooms/");
     }
 
-
-
-
-//    // TODO: remove addStudentToRoom() --> just for testing purposes --> unavailable room is not shown on endpoint
-//    @GetMapping("/rooms/available")
-//    public String getAvailableRooms(Model model) {
-//        model.addAttribute("rooms", roomService.getAllRooms());
-//        return "available-rooms";
-//    }
+    @GetMapping("/available")
+    public List<Room> getAvailableRooms() {
+        return roomService.getAllRooms();
+    }
 }
