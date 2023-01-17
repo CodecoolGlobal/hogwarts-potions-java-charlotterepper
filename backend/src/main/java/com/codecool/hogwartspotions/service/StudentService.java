@@ -1,7 +1,7 @@
-package com.codecool.hogwarts_potions.service;
+package com.codecool.hogwartspotions.service;
 
-import com.codecool.hogwarts_potions.model.Student;
-import com.codecool.hogwarts_potions.repository.StudentRepository;
+import com.codecool.hogwartspotions.model.Student;
+import com.codecool.hogwartspotions.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

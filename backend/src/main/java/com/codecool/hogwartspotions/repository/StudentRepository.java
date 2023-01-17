@@ -1,6 +1,6 @@
-package com.codecool.hogwarts_potions.repository;
+package com.codecool.hogwartspotions.repository;
 
-import com.codecool.hogwarts_potions.model.Student;
+import com.codecool.hogwartspotions.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

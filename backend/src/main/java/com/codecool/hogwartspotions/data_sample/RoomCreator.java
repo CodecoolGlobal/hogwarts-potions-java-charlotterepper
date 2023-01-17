@@ -1,8 +1,8 @@
-package com.codecool.hogwarts_potions.data_sample;
+package com.codecool.hogwartspotions.data_sample;
 
-import com.codecool.hogwarts_potions.model.HouseType;
-import com.codecool.hogwarts_potions.model.Room;
-import com.codecool.hogwarts_potions.repository.RoomRepository;
+import com.codecool.hogwartspotions.model.HouseType;
+import com.codecool.hogwartspotions.model.Room;
+import com.codecool.hogwartspotions.repository.RoomRepository;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Component;
 

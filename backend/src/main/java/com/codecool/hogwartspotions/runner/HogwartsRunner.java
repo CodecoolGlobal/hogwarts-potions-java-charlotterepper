@@ -1,7 +1,7 @@
-package com.codecool.hogwarts_potions.runner;
+package com.codecool.hogwartspotions.runner;
 
-import com.codecool.hogwarts_potions.data_sample.RoomCreator;
-import com.codecool.hogwarts_potions.data_sample.StudentCreator;
+import com.codecool.hogwartspotions.data_sample.RoomCreator;
+import com.codecool.hogwartspotions.data_sample.StudentCreator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;

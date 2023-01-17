@@ -1,13 +1,14 @@
-package com.codecool.hogwarts_potions.controller;
+package com.codecool.hogwartspotions.controller;
 
-import com.codecool.hogwarts_potions.model.Room;
-import com.codecool.hogwarts_potions.service.RoomService;
+import com.codecool.hogwartspotions.model.HouseType;
+import com.codecool.hogwartspotions.model.Room;
+import com.codecool.hogwartspotions.service.RoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,10 +21,22 @@ public class RoomController {
     public List<Room> rooms() {
         return roomService.getAllRooms();
     }
+
     @GetMapping("/{id}")
     public Room getRoom(@PathVariable("id") Long id) {
         return roomService.getRoomById(id);
     }
+
+    @PostMapping("/{id}")
+    public RedirectView updateRoom(@PathVariable Long id, @RequestBody MultiValueMap<String, String> map) {
+        Room updatedRoom = new Room(map.get("room-name").get(0),
+                             HouseType.valueOf(map.get("room-house").get(0).toUpperCase()),
+                             Integer.parseInt(map.get("room-capacity").get(0)));
+        roomService.updateRoomById(id, updatedRoom);
+        return new RedirectView("http://localhost:3000/rooms/");
+    }
+
+
 
     // TODO: fix delete room
 //    @DeleteMapping("/{id}")

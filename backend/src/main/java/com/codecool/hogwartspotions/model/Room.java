@@ -1,6 +1,5 @@
-package com.codecool.hogwarts_potions.model;
+package com.codecool.hogwartspotions.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,12 +1,11 @@
-package com.codecool.hogwarts_potions.service;
+package com.codecool.hogwartspotions.service;
 
-import com.codecool.hogwarts_potions.model.Room;
-import com.codecool.hogwarts_potions.repository.RoomRepository;
+import com.codecool.hogwartspotions.model.Room;
+import com.codecool.hogwartspotions.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +29,9 @@ public class RoomService {
     }
 
     public void updateRoomById(Long id, Room updatedRoom) {
-        //TODO
+        roomRepository.deleteById(id);
+        updatedRoom.setId(id);
+        roomRepository.save(updatedRoom);
     }
 
     public void deleteRoomById(Long id) {

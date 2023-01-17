@@ -5,10 +5,11 @@ import {useParams} from "react-router-dom";
 export default function Rooms() {
     const [room, setRoom] = useState(null);
     const roomLink = "http://localhost:3000/rooms/";
+    const allRoomsEndpoint = "http://localhost:8080/rooms/";
     const {id} = useParams();
 
     const fetchData = () => {
-        fetch("http://localhost:8080/rooms/" + id)
+        fetch(allRoomsEndpoint + id)
             .then((response) => response.json())
             .then(data => {
                 console.log(data);
@@ -46,9 +47,7 @@ export default function Rooms() {
                 </div>
                 <div className="room">
                     <h2>Update Room #{room.id}</h2>
-                    <form id="room-form" className="create-room-form"
-                          action={roomLink + room.id}
-                          method="POST">
+                    <form id="room-form" className="create-room-form" action={allRoomsEndpoint + room.id} method="POST">
                         <label htmlFor="room-name">Room Name:</label> <br/>
                         <input type="text" name="room-name" id="room-name" required/> <br/>
                         <label htmlFor="room-house">Hogwarts House:</label> <br/>

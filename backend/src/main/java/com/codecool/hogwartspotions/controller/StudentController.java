@@ -1,7 +1,7 @@
-package com.codecool.hogwarts_potions.controller;
+package com.codecool.hogwartspotions.controller;
 
-import com.codecool.hogwarts_potions.model.Student;
-import com.codecool.hogwarts_potions.service.StudentService;
+import com.codecool.hogwartspotions.model.Student;
+import com.codecool.hogwartspotions.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

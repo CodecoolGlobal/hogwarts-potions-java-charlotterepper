@@ -1,11 +1,8 @@
-package com.codecool.hogwarts_potions.repository;
+package com.codecool.hogwartspotions.repository;
 
-import com.codecool.hogwarts_potions.model.Room;
+import com.codecool.hogwartspotions.model.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.Id;
-import java.util.List;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
