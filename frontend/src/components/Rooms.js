@@ -18,7 +18,6 @@ export default function Rooms() {
         <>
             <Nav title="All Rooms" />
             <div className="container">
-                <h1>All rooms</h1>
                 <div className="room">
                     {rooms && rooms.map((room, index) =>
                         <div key={index}>
