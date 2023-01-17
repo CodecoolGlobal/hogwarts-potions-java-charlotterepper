@@ -4,6 +4,7 @@ import com.codecool.hogwarts_potions.model.Room;
 import com.codecool.hogwarts_potions.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,9 +21,16 @@ public class RoomController {
         return roomService.getAllRooms();
     }
     @GetMapping("/{id}")
-    public Optional<Room> getRoom(@PathVariable("id") Long id) {
+    public Room getRoom(@PathVariable("id") Long id) {
         return roomService.getRoomById(id);
     }
+
+    // TODO: fix delete room
+//    @DeleteMapping("/{id}")
+//    public RedirectView deleteRoom(@PathVariable Long id) {
+//        roomService.deleteRoomById(id);
+//        return new RedirectView("/rooms");
+//    }
 
 //    @GetMapping("/rooms/create-room")
 //    public String getCreateRoom() {
@@ -38,11 +46,7 @@ public class RoomController {
 //    }
 //
 //
-//    @DeleteMapping("/rooms/{id}")
-//    public String deleteRoom(@PathVariable Long id) {
-//        roomService.deleteRoomById(id);
-//        return "redirect:";
-//    }
+//
 //
 //    @PostMapping("/rooms/{id}")
 //    public String updateRoom(@PathVariable Long id, @RequestBody MultiValueMap<String, String> map) {

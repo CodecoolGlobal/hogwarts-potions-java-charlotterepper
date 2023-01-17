@@ -4,6 +4,8 @@ import Nav from "./Nav";
 export default function Rooms() {
     const [students, setStudents] = useState(null);
     const [rooms, setRooms] = useState(null);
+    const addRoomLink = "http://localhost:8080/students/add-room/";
+
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/")
             .then((response) => response.json())
@@ -35,7 +37,7 @@ export default function Rooms() {
                         <p>House: {student.houseType}</p>
 
                         <form id="room-form" className="create-room-form"
-                              action={"http://localhost:8080/students/add-room/" + student.id} method="POST">
+                              action={addRoomLink + student.id} method="POST">
                             <label htmlFor="chosen-room">Room:</label> <br/>
                             <select name="chosen-room" id="chosen-room" form="room-form">
                                 {rooms && rooms.map(room => {

@@ -25,8 +25,8 @@ public class RoomService {
         //TODO
     }
 
-    public Optional<Room> getRoomById(Long id) {
-        return roomRepository.findById(id);
+    public Room getRoomById(Long id) {
+        return roomRepository.findById(id).get();
     }
 
     public void updateRoomById(Long id, Room updatedRoom) {
@@ -34,7 +34,7 @@ public class RoomService {
     }
 
     public void deleteRoomById(Long id) {
-        //TODO
+        roomRepository.deleteById(id);
     }
 
     public List<Room> getRoomsForRatOwners() {
