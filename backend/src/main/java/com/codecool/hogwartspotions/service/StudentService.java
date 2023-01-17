@@ -17,7 +17,7 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
-        //TODO
+        studentRepository.save(student);
     }
 
     public void addRoomToStudent(Long studentId, Long roomId) {

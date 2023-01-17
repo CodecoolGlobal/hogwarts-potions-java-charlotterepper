@@ -56,32 +56,9 @@ public class RoomController {
         return new RedirectView("http://localhost:3000/rooms/");
     }
 
-//    @GetMapping("/rooms/create-room")
-//    public String getCreateRoom() {
-//        return "create-room";
-//    }
-//
-//    @PostMapping("/rooms/create-room")
-//    public String createRoom(@RequestBody MultiValueMap<String, String> map) {
-//        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
-//        Room room = new Room(map.get("room-name").get(0), HouseType.valueOf(map.get("room-house").get(0)), capacity);
-//        roomService.addRoom(room);
-//        return "redirect:";
-//    }
-//
-//
-//
-//
-//    @PostMapping("/rooms/{id}")
-//    public String updateRoom(@PathVariable Long id, @RequestBody MultiValueMap<String, String> map) {
-//        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
-//        Room room = new Room(map.get("room-name").get(0), HouseType.valueOf(map.get("room-house").get(0)), capacity);
-//        roomService.updateRoomById(id, room);
-//        return "redirect:";
-//    }
-//
-//
-//
+
+
+
 //    // TODO: remove addStudentToRoom() --> just for testing purposes --> unavailable room is not shown on endpoint
 //    @GetMapping("/rooms/available")
 //    public String getAvailableRooms(Model model) {

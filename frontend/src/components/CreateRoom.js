@@ -6,7 +6,7 @@ export default function CreateRoom() {
         <>
             <Nav title="Create New Room"/>
             <div className="container">
-                <form method="POST" action={"http://localhost:8080/rooms/create"} id="room-form" className="create-room-form">
+                <form method="POST" action="http://localhost:8080/rooms/create" id="room-form" className="create-room-form">
                     <label htmlFor="room-name">Room Name:</label> <br/>
                     <input type="text" name="room-name" id="room-name" required/> <br/>
                         <label htmlFor="room-house">Hogwarts House:</label> <br/>

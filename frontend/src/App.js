@@ -4,6 +4,7 @@ import Students from "./components/Students";
 import Room from "./components/Room";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import CreateRoom from "./components/CreateRoom";
+import AddStudent from "./components/AddStudent";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path="/students" exact element={<Students/>}/>
                     <Route path="/rooms/:id" exact element={<Room/>}/>
                     <Route path="/rooms/create" exact element={<CreateRoom/>}/>
+                    <Route path="/students/add" exact element={<AddStudent/>}/>
                 </Routes>
             </div>
         </Router>

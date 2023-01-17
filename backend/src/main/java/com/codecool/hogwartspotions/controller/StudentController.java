@@ -1,23 +1,41 @@
 package com.codecool.hogwartspotions.controller;
 
+import com.codecool.hogwartspotions.model.HouseType;
+import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Student;
 import com.codecool.hogwartspotions.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin
+@RequestMapping("/students")
 public class StudentController {
     private final StudentService studentService;
 
-    @GetMapping("/students")
+    @GetMapping
     public List<Student> allStudents() {
         return studentService.getAllStudents();
+    }
+
+    @GetMapping("/add")
+    public void addStudent() {
+
+    }
+
+    @PostMapping("/add")
+    public RedirectView addStudent(@RequestBody MultiValueMap<String, String> map) {
+        Student student = new Student(map.get("student-first-name").get(0),
+                                      map.get("student-last-name").get(0),
+                                      HouseType.valueOf(map.get("student-house-type").get(0).toUpperCase()),
+                                      PetType.valueOf(map.get("student-pet-type").get(0).toUpperCase()));
+        studentService.addStudent(student);
+        return new RedirectView("http://localhost:3000/students/");
     }
 
 //    @PostMapping("/students/add-room/{roomName}/{firstName}/{lastName}")
@@ -31,15 +49,7 @@ public class StudentController {
 //        return "redirect:";
 //    }
 //
-//    @GetMapping("/students/add-student")
-//    public String getAddStudent() {
-//        return "add-student";
-//    }
+
 //
-//    @PostMapping("/students/add-student")
-//    public String addStudent(@RequestBody MultiValueMap<String, String> map) {
-//        Student student = new Student(map.get("student-first-name").get(0), map.get("student-last-name").get(0), HouseType.valueOf(map.get("student-house-type").get(0)), PetType.valueOf(map.get("student-pet-type").get(0)));
-//        studentService.addStudent(student);
-//        return "redirect:";
-//    }
+
 }

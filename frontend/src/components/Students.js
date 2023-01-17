@@ -35,6 +35,7 @@ export default function Rooms() {
                     <div className="room">
                         <h2>{student.fullName}</h2>
                         <p>House: {student.houseType}</p>
+                        <p>Pet: {student.petType}</p>
 
                         <form id="room-form" className="create-room-form"
                               action={addRoomLink + student.id} method="POST">
