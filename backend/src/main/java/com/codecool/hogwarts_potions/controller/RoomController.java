@@ -2,50 +2,62 @@ package com.codecool.hogwarts_potions.controller;
 
 import com.codecool.hogwarts_potions.model.Room;
 import com.codecool.hogwarts_potions.service.RoomService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/room")
+@RequiredArgsConstructor
+@CrossOrigin
+@RequestMapping("/rooms")
 public class RoomController {
-
-    RoomService roomService;
-
-    @Autowired
-    public RoomController(RoomService roomService) {
-        this.roomService = roomService;
-    }
+    private final RoomService roomService;
 
     @GetMapping
-    public List<Room> getAllRooms(){
+    public List<Room> rooms() {
         return roomService.getAllRooms();
     }
-
-    @PostMapping
-    public void addRoom(@RequestBody Room room){
-        roomService.addRoom(room);
-    }
-
     @GetMapping("/{id}")
-    public Room getRoomById(@PathVariable("id") Long id){
+    public Optional<Room> getRoom(@PathVariable("id") Long id) {
         return roomService.getRoomById(id);
     }
 
-    @PutMapping("/{id}")
-    public void updateRoomById(@PathVariable("id") Long id, @RequestBody Room updatedRoom){
-        roomService.updateRoomById(id, updatedRoom);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteRoomById(@PathVariable("id") Long id){
-        roomService.deleteRoomById(id);
-    }
-
-    //Get rooms where no cat or owl lives
-    @GetMapping("/rat-owners")
-    public List<Room> getRoomsForRatOwners(){
-        return roomService.getRoomsForRatOwners();
-    }
+//    @GetMapping("/rooms/create-room")
+//    public String getCreateRoom() {
+//        return "create-room";
+//    }
+//
+//    @PostMapping("/rooms/create-room")
+//    public String createRoom(@RequestBody MultiValueMap<String, String> map) {
+//        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
+//        Room room = new Room(map.get("room-name").get(0), HouseType.valueOf(map.get("room-house").get(0)), capacity);
+//        roomService.addRoom(room);
+//        return "redirect:";
+//    }
+//
+//
+//    @DeleteMapping("/rooms/{id}")
+//    public String deleteRoom(@PathVariable Long id) {
+//        roomService.deleteRoomById(id);
+//        return "redirect:";
+//    }
+//
+//    @PostMapping("/rooms/{id}")
+//    public String updateRoom(@PathVariable Long id, @RequestBody MultiValueMap<String, String> map) {
+//        int capacity = Integer.parseInt(map.get("room-capacity").get(0));
+//        Room room = new Room(map.get("room-name").get(0), HouseType.valueOf(map.get("room-house").get(0)), capacity);
+//        roomService.updateRoomById(id, room);
+//        return "redirect:";
+//    }
+//
+//
+//
+//    // TODO: remove addStudentToRoom() --> just for testing purposes --> unavailable room is not shown on endpoint
+//    @GetMapping("/rooms/available")
+//    public String getAvailableRooms(Model model) {
+//        model.addAttribute("rooms", roomService.getAllRooms());
+//        return "available-rooms";
+//    }
 }

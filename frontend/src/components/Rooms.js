@@ -33,7 +33,7 @@ export default function Rooms() {
                                 <strong>{room.listSize === room.capacity ? " full" : ""}</strong>
                                 <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
                             </p>
-                            <a href={"http://localhost:8080/rooms/" + room.id} id="all-rooms-btn">Room Details</a>
+                            <a href={"http://localhost:3000/rooms/" + room.id} id="all-rooms-btn">Room Details</a>
                         </div>
                     )}
                 </div>

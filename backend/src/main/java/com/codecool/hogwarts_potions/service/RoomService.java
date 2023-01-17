@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,9 +25,8 @@ public class RoomService {
         //TODO
     }
 
-    public Room getRoomById(Long id) {
-        //TODO
-        return null;
+    public Optional<Room> getRoomById(Long id) {
+        return roomRepository.findById(id);
     }
 
     public void updateRoomById(Long id, Room updatedRoom) {

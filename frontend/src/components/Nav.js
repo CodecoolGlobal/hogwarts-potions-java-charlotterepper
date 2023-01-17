@@ -1,6 +1,6 @@
 export default function Rooms(props) {
 
-    const roomLink = <a href="http://localhost:3000/" id="nav-link">All rooms</a>;
+    const roomLink = <a href="http://localhost:3000/rooms" id="nav-link">All rooms</a>;
     const studentLink = <a href="http://localhost:3000/students" id="nav-link">All Students</a>;
 
     function showAccordingLinks(name) {
