@@ -40,14 +40,13 @@ export default function Rooms() {
                         <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
                     </p>
 
-                    <form method="delete" action={roomLink + roomId}>
-                        <input type="hidden" name="_method" value="delete"/>
-                        <input id="delete-btn" value="Delete Room" type="submit"/>
+                    <form method="POST" action={allRoomsEndpoint + "delete/" + roomId}>
+                        <button type="submit">Delete Room</button>
                     </form>
                 </div>
                 <div className="room">
                     <h2>Update Room #{room.id}</h2>
-                    <form id="room-form" className="create-room-form" action={allRoomsEndpoint + room.id} method="POST">
+                    <form method="POST" id="room-form" className="create-room-form" action={allRoomsEndpoint + room.id}>
                         <label htmlFor="room-name">Room Name:</label> <br/>
                         <input type="text" name="room-name" id="room-name" required/> <br/>
                         <label htmlFor="room-house">Hogwarts House:</label> <br/>

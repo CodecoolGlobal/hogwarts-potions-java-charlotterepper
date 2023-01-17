@@ -36,14 +36,11 @@ public class RoomController {
         return new RedirectView("http://localhost:3000/rooms/");
     }
 
-
-
-    // TODO: fix delete room
-//    @DeleteMapping("/{id}")
-//    public RedirectView deleteRoom(@PathVariable Long id) {
-//        roomService.deleteRoomById(id);
-//        return new RedirectView("/rooms");
-//    }
+    @PostMapping("/delete/{id}")
+    public RedirectView deleteRoom(@PathVariable Long id) {
+        roomService.deleteRoomById(id);
+        return new RedirectView("http://localhost:3000/rooms/");
+    }
 
 //    @GetMapping("/rooms/create-room")
 //    public String getCreateRoom() {
