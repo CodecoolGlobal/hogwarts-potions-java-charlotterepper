@@ -17,7 +17,7 @@ public class RoomService {
     }
 
     public void addRoom(Room room) {
-        //TODO
+        roomRepository.save(room);
     }
 
     public void addStudentToRoom(Long roomId, Long studentId) {
