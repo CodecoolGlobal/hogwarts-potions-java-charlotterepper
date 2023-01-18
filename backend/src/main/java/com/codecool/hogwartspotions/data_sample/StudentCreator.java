@@ -13,7 +13,6 @@ import java.util.Random;
 public class StudentCreator {
     private final Faker faker = new Faker();
 
-    // TODO: replace with Student repo
     private final StudentRepository studentRepository;
 
     public StudentCreator(StudentRepository studentRepository) {
@@ -22,6 +21,10 @@ public class StudentCreator {
 
     public void createRandomStudent() {
         studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType()));
+    }
+
+    public Student getRandomStudent() {
+        return new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType());
     }
 
     public HouseType getRandomHouseType() {

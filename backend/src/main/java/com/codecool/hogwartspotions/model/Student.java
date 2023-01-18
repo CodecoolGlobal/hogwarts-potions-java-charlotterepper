@@ -12,8 +12,6 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Student {
-
-//    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

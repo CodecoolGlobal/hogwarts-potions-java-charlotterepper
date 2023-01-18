@@ -3,7 +3,7 @@ package com.codecool.hogwartspotions.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,20 +13,16 @@ import java.util.Set;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Table
-public class Room {
+public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
     private String name;
-    @NonNull
-    private HouseType houseType;
-    @NonNull
-    private Integer capacity;
-    @OneToMany(mappedBy = "room")
-    private Set<Student> residents;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
 
-    public int getListSize() {
-        return residents.size();
-    }
+    @OneToMany
+    List<Ingredient> ingredients;
 }
