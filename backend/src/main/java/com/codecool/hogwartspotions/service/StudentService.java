@@ -26,6 +26,7 @@ public class StudentService {
         Student student = getStudentById(studentId);
         Room room = roomService.getRoomById(roomId);
         student.setRoom(room);
+        studentRepository.save(student);
     }
 
     public Student getStudentById(Long id) {

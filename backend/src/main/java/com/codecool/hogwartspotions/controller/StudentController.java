@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/students")
 public class StudentController {
     private final StudentService studentService;
@@ -38,11 +38,12 @@ public class StudentController {
         return new RedirectView("http://localhost:3000/students/");
     }
 
-    @PostMapping("/{studentId}")
-    public RedirectView addRoomToStudent(@PathVariable("studentId") String studentId,
-                                         @RequestBody MultiValueMap<String, String> map) {
-        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(map.get("chosen-room").get(0)));
-        return new RedirectView("http://localhost:3000/students/");
+    @PostMapping("/{studentId}/{roomId}")
+    public void addRoomToStudent(@PathVariable("studentId") String studentId,
+                                         @PathVariable("roomId") String roomId) {
+        System.out.println("studentId " + studentId);
+        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
+//        return new RedirectView("http://localhost:3000/students/");
     }
 
 //    @PostMapping("/students/add-room/{studentId}")

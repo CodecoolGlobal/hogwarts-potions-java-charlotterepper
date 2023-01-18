@@ -4,6 +4,7 @@ import Nav from "./Nav";
 export default function Rooms() {
     const [students, setStudents] = useState(null);
     const [rooms, setRooms] = useState(null);
+    const [roomId, setRoomId] = useState(-1);
     const addRoomLink = "http://localhost:8080/students/";
 
     const fetchStudentData = () => {
@@ -27,6 +28,18 @@ export default function Rooms() {
         fetchRoomData();
     }, [])
 
+    const onChangeSelect = (event) => {
+        setRoomId(event.target.value);
+    }
+
+    const addRoom = (studentId, roomId) => {
+        fetch(addRoomLink + studentId + "/" + roomId)
+            .then(response => response.json())
+            .then(data => {
+                setRoomId(-1);
+            })
+    }
+
     return (
         <>
             <Nav title="All Students"/>
@@ -36,10 +49,13 @@ export default function Rooms() {
                         <h2>{student.fullName}</h2>
                         <p>House: {student.houseType}</p>
                         <p>Pet: {student.petType}</p>
+                        <p>Room: {student.room?.name}</p>
+                        {/*<p>RoomId: {roomId}</p>*/}
 
-                        <form method="POST" action={addRoomLink + student.id} id="room-form" className="create-room-form">
-                            <label htmlFor="chosen-room">Room:</label> <br/>
-                            <select name="chosen-room" id="chosen-room" form="room-form">
+                        {/*<form method="POST" action={addRoomLink + student.id + "/" + roomId} id="room-form" className="create-room-form">*/}
+                            <label htmlFor="chosen-room">Add Room:</label> <br/>
+                            <select onChange={onChangeSelect} name="chosen-room" id="chosen-room" form="room-form">
+                                <option>---</option>
                                 {rooms && rooms.map((room, index) => {
                                     if (room.listSize === 0 || room.listSize < room.capacity) {
                                         return (<option value={room.id} key={index}>{room.name}</option>);
@@ -47,8 +63,8 @@ export default function Rooms() {
                                     return ("");
                                 })}
                             </select> <br/>
-                            <button type="submit">Select Room</button>
-                        </form>
+                            <button onClick={() => addRoom(student.id, roomId)}>Select Room</button>
+                        {/*</form>*/}
                     </div>
                 )}
             </div>
