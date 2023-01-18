@@ -38,18 +38,31 @@ public class StudentController {
         return new RedirectView("http://localhost:3000/students/");
     }
 
-//    @PostMapping("/students/add-room/{roomName}/{firstName}/{lastName}")
+    @PostMapping("/{studentId}")
+    public RedirectView addRoomToStudent(@PathVariable("studentId") String studentId,
+                                         @RequestBody MultiValueMap<String, String> map) {
+        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(map.get("chosen-room").get(0)));
+        return new RedirectView("http://localhost:3000/students/");
+    }
+
+//    @PostMapping("/students/add-room/{studentId}")
+//    public String addStudentToRoom(@PathVariable("studentId") String studentId,
+//                                   @RequestBody MultiValueMap<String, String> map) {
+//        studentService.addRoom(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
+//        roomService.addStudent(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
+//        return "redirect:";
+//    }
+
+
+//    @PostMapping("/students/{roomName}/{firstName}/{lastName}")
 //    public String addStudentToRoom(@PathVariable("roomName") String roomName,
 //                                   @PathVariable("firstName") String firstName,
 //                                   @PathVariable("lastName") String lastName) {
-//        // TODO: maybe I will not need this
-////        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
+//        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
 //
-//        roomService.addStudentToRoom(roomName, firstName, lastName);
+//        // TODO: maybe I will not need this
+////        roomService.addStudentToRoom(roomName, firstName, lastName);
 //        return "redirect:";
 //    }
-//
-
-//
 
 }

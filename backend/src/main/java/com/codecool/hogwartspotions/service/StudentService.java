@@ -1,5 +1,6 @@
 package com.codecool.hogwartspotions.service;
 
+import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.model.Student;
 import com.codecool.hogwartspotions.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentService {
     private final StudentRepository studentRepository;
+    private final RoomService roomService;
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
@@ -21,12 +23,13 @@ public class StudentService {
     }
 
     public void addRoomToStudent(Long studentId, Long roomId) {
-        //TODO: search student by first name and last name, search room by room name and add student
+        Student student = getStudentById(studentId);
+        Room room = roomService.getRoomById(roomId);
+        student.setRoom(room);
     }
 
     public Student getStudentById(Long id) {
-        //TODO
-        return null;
+        return studentRepository.findById(id).get();
     }
 
     public void updateStudentById(Long id, Student updatedStudent) {

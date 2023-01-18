@@ -4,7 +4,7 @@ import Nav from "./Nav";
 export default function Rooms() {
     const [students, setStudents] = useState(null);
     const [rooms, setRooms] = useState(null);
-    const addRoomLink = "http://localhost:8080/students/add-room/";
+    const addRoomLink = "http://localhost:8080/students/";
 
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/")
@@ -31,26 +31,20 @@ export default function Rooms() {
         <>
             <Nav title="All Students"/>
             <div className="container">
-                {students && students.map(student =>
-                    <div className="room">
+                {students && students.map((student, index) =>
+                    <div className="room" key={index}>
                         <h2>{student.fullName}</h2>
                         <p>House: {student.houseType}</p>
                         <p>Pet: {student.petType}</p>
 
-                        <form id="room-form" className="create-room-form"
-                              action={addRoomLink + student.id} method="POST">
+                        <form method="POST" action={addRoomLink + student.id} id="room-form" className="create-room-form">
                             <label htmlFor="chosen-room">Room:</label> <br/>
                             <select name="chosen-room" id="chosen-room" form="room-form">
-                                {rooms && rooms.map(room => {
+                                {rooms && rooms.map((room, index) => {
                                     if (room.listSize === 0 || room.listSize < room.capacity) {
-                                        return (
-                                            <option value={room.id}>{room.name}</option>
-                                        );
-                                    } else {
-                                        return (
-                                            ""
-                                        );
+                                        return (<option value={room.id} key={index}>{room.name}</option>);
                                     }
+                                    return ("");
                                 })}
                             </select> <br/>
                             <button type="submit">Select Room</button>
