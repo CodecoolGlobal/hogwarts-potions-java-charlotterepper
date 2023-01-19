@@ -19,7 +19,7 @@ public class IngredientCreator {
     private final IngredientRepository ingredientRepository;
 
     public Ingredient getRandomIngredient() {
-        return ingredientRepository.save(new Ingredient(faker.ancient().god()));
+        return ingredientRepository.save(new Ingredient(faker.food().ingredient()));
     }
 
     public List<Ingredient> getRandomIngredients() {

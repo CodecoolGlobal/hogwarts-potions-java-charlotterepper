@@ -21,7 +21,7 @@ public class PotionCreator {
     private final IngredientCreator ingredientCreator;
 
     public void createRandomPotion() {
-        potionRepository.save(new Potion(faker.funnyName() + " Potion", studentCreator.getRandomStudent(),
+        potionRepository.save(new Potion(faker.witcher().monster() + " Potion", studentCreator.getRandomStudent(),
                 ingredientCreator.getRandomIngredients(), getRandomBrewingStatus(), recipeCreator.getRandomRecipe()));
     }
 

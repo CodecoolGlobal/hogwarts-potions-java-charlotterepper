@@ -1,10 +1,7 @@
-import Nav from "./Nav";
-
 export default function AddStudent() {
 
     return (
         <>
-            <Nav title="Add New Student"/>
             <div className="container">
                 <form method="POST" action="http://localhost:8080/students/add" id="student-form"
                       className="create-room-form">

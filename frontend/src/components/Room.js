@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import Nav from "./Nav";
 import {useParams} from "react-router-dom";
 
 export default function Rooms() {
@@ -27,7 +26,6 @@ export default function Rooms() {
 
     return (
         <>
-            <Nav title={"Room #" + roomId}/>
             <div className="container" id="normal-direction">
                 <div className="room">
                     <h2>{room.name}</h2>

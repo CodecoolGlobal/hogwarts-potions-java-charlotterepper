@@ -6,11 +6,14 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import CreateRoom from "./components/CreateRoom";
 import AddStudent from "./components/AddStudent";
 import AvailableRooms from "./components/AvailableRooms";
+import Nav from "./components/Nav";
+import Potions from "./components/Potions";
 
 function App() {
     return (
         <Router>
             <div className="App">
+                <Nav/>
                 <Routes>
                     <Route path="/rooms" exact element={<Rooms/>}/>
                     <Route path="/students" exact element={<Students/>}/>
@@ -18,6 +21,7 @@ function App() {
                     <Route path="/rooms/create" exact element={<CreateRoom/>}/>
                     <Route path="/students/add" exact element={<AddStudent/>}/>
                     <Route path="/rooms/available" exact element={<AvailableRooms/>}/>
+                    <Route path="/potions" exact element={<Potions/>}/>
                 </Routes>
             </div>
         </Router>
