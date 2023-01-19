@@ -19,7 +19,7 @@ public class HogwartsRunner implements CommandLineRunner {
         for (int i = 0; i < 5; i++) {
             roomCreator.createRandomRoom();
             studentCreator.createRandomStudent();
-//            potionCreator.createRandomPotion();
+            potionCreator.createRandomPotion();
         }
     }
 }

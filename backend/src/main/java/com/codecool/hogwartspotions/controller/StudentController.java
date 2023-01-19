@@ -40,8 +40,7 @@ public class StudentController {
 
     @PostMapping("/{studentId}/{roomId}")
     public void addRoomToStudent(@PathVariable("studentId") String studentId,
-                                         @PathVariable("roomId") String roomId) {
-        System.out.println("studentId " + studentId);
+                                 @PathVariable("roomId") String roomId) {
         studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
 //        return new RedirectView("http://localhost:3000/students/");
     }

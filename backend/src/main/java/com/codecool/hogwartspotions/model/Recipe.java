@@ -19,10 +19,12 @@ public class Recipe {
     private Long id;
     @NonNull
     private String name;
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
+    @NonNull
     @OneToMany
     List<Ingredient> ingredients;
 }

@@ -24,7 +24,7 @@ public class StudentCreator {
     }
 
     public Student getRandomStudent() {
-        return new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType());
+        return studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType()));
     }
 
     public HouseType getRandomHouseType() {

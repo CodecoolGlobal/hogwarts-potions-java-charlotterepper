@@ -3,28 +3,22 @@ package com.codecool.hogwartspotions.data_sample;
 import com.codecool.hogwartspotions.model.Recipe;
 import com.codecool.hogwartspotions.repository.RecipeRepository;
 import com.github.javafaker.Faker;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@RequiredArgsConstructor
 @Component
 public class RecipeCreator {
-    private final Faker faker;
-    private Random random;
-    private final RecipeRepository recipeRepository;
+    private final Faker faker = new Faker();
+    private Random random = new Random();
 
     private final StudentCreator studentCreator;
     private final IngredientCreator ingredientCreator;
+    private final RecipeRepository recipeRepository;
 
-    public RecipeCreator(RecipeRepository recipeRepository, StudentCreator studentCreator, IngredientCreator ingredientCreator) {
-        this.recipeRepository = recipeRepository;
-        this.studentCreator = studentCreator;
-        this.ingredientCreator = ingredientCreator;
-        faker = new Faker();
-        random = new Random();
+    public Recipe getRandomRecipe() {
+        return recipeRepository.save(new Recipe(faker.ancient().god() + " Recipe", studentCreator.getRandomStudent(), ingredientCreator.getRandomIngredients()));
     }
-
-//    public Recipe getRandomRecipe() {
-//        return new Recipe(faker.ancient().god() + " Recipe", studentCreator.getRandomStudent(), ingredientCreator.getRandomIngredients());
-//    }
 }

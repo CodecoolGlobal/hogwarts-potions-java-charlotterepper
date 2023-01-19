@@ -19,13 +19,16 @@ public class Potion {
     private Long id;
     @NonNull
     private String name;
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
+    @NonNull
     @OneToMany
     private List<Ingredient> ingredients;
     @NonNull
     private BrewingStatus brewingStatus;
+    @NonNull
     @OneToOne
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
