@@ -4,14 +4,15 @@ import com.codecool.hogwartspotions.exceptions.ResourceNotFoundException;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class RoomService {
-    private final RoomRepository roomRepository;
+    @Autowired
+    private RoomRepository roomRepository;
 
     public List<Room> getAllRooms() {
         return roomRepository.findAll();
