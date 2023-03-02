@@ -44,27 +44,5 @@ public class StudentController {
     public void addRoomToStudent(@PathVariable("studentId") String studentId,
                                  @PathVariable("roomId") String roomId) {
         studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
-//        return new RedirectView("http://localhost:3000/students/");
     }
-
-//    @PostMapping("/students/add-room/{studentId}")
-//    public String addStudentToRoom(@PathVariable("studentId") String studentId,
-//                                   @RequestBody MultiValueMap<String, String> map) {
-//        studentService.addRoom(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
-//        roomService.addStudent(Integer.parseInt(studentId), Integer.parseInt(map.get("chosen-room").get(0)));
-//        return "redirect:";
-//    }
-
-
-//    @PostMapping("/students/{roomName}/{firstName}/{lastName}")
-//    public String addStudentToRoom(@PathVariable("roomName") String roomName,
-//                                   @PathVariable("firstName") String firstName,
-//                                   @PathVariable("lastName") String lastName) {
-//        studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
-//
-//        // TODO: maybe I will not need this
-////        roomService.addStudentToRoom(roomName, firstName, lastName);
-//        return "redirect:";
-//    }
-
 }
