@@ -3,6 +3,7 @@ package com.codecool.hogwartspotions.data_sample;
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Student;
+import com.codecool.hogwartspotions.repository.RoomRepository;
 import com.codecool.hogwartspotions.repository.StudentRepository;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Component;
@@ -14,17 +15,19 @@ public class StudentCreator {
     private final Faker faker = new Faker();
 
     private final StudentRepository studentRepository;
+    private final RoomCreator roomCreator;
 
-    public StudentCreator(StudentRepository studentRepository) {
+    public StudentCreator(StudentRepository studentRepository, RoomCreator roomCreator) {
         this.studentRepository = studentRepository;
+        this.roomCreator = roomCreator;
     }
 
     public void createRandomStudent() {
-        studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType()));
+        studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
     }
 
     public Student getRandomStudent() {
-        return studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), getRandomPetType()));
+        return studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
     }
 
     public HouseType getRandomHouseType() {

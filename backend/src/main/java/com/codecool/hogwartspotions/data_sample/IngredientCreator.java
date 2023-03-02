@@ -24,7 +24,7 @@ public class IngredientCreator {
 
     public List<Ingredient> getRandomIngredients() {
         List<Ingredient> ingredients = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             ingredients.add(getRandomIngredient());
         }
         return ingredientRepository.saveAll(ingredients);

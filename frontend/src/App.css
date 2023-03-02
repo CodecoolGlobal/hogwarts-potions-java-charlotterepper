@@ -58,7 +58,7 @@ a:hover, button:hover, #delete-btn:hover {
   gap: 50px;
   color: #d9f5f8;
   padding-bottom: 50px;
-  flex-direction: column-reverse;
+  /*flex-direction: column-reverse;*/
   align-items: center;
 }
 
@@ -75,6 +75,11 @@ a:hover, button:hover, #delete-btn:hover {
   border-radius: 5px;
   background-color: #374a5b;
   padding: 25px;
+}
+
+textarea {
+  border-radius: 5px;
+  border: none;
 }
 
 #delete-btn {

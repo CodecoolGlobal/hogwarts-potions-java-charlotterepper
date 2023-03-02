@@ -23,10 +23,16 @@ public class PotionController {
         return potionService.getAllPotions();
     }
 
+    @PostMapping
+    public void brewPotion() {
+        
+    }
+
     @GetMapping("/{id}")
     public Potion getPotion(@PathVariable("id") Long id) {
         return potionService.getPotionById(id);
     }
+
 
 //    @PostMapping("/{id}")
 //    public RedirectView updateRoom(@PathVariable Long id, @RequestBody MultiValueMap<String, String> map) {

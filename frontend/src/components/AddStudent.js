@@ -3,8 +3,7 @@ export default function AddStudent() {
     return (
         <>
             <div className="container">
-                <form method="POST" action="http://localhost:8080/students/add" id="student-form"
-                      className="create-room-form">
+                <form method="POST" action="http://localhost:8080/students/add" id="student-form" className="create-room-form">
                     <label htmlFor="student-first-name">First Name:</label> <br/>
                     <input type="text" name="student-first-name" id="student-first-name" required/> <br/>
                     <label htmlFor="student-last-name">Last Name:</label> <br/>

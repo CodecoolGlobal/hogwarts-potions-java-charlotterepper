@@ -17,7 +17,7 @@ public class HogwartsRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         for (int i = 0; i < 5; i++) {
-            roomCreator.createRandomRoom();
+            roomCreator.createAndSaveRandomRoom();
             studentCreator.createRandomStudent();
             potionCreator.createRandomPotion();
         }

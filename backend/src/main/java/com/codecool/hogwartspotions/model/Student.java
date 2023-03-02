@@ -1,5 +1,6 @@
 package com.codecool.hogwartspotions.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,7 +22,9 @@ public class Student {
     private String lastName;
     @NonNull
     private HouseType houseType;
+    @NonNull
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "room_id")
     private Room room;
     @NonNull

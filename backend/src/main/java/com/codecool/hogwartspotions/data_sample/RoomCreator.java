@@ -21,9 +21,9 @@ public class RoomCreator {
         random = new Random();
     }
 
-    public void createRandomRoom() {
-        roomRepository.save(new Room(faker.harryPotter().location() + " Room", getRandomHouseType(),
-                new Random().nextInt(10 - 1) + 1));
+    public Room createAndSaveRandomRoom() {
+        return roomRepository.save(new Room(faker.harryPotter().location() + " Room", getRandomHouseType(),
+                random.nextInt(10 - 1) + 1));
     }
 
     public HouseType getRandomHouseType() {

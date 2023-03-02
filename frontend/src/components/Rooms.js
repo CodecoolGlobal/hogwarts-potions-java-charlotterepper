@@ -17,14 +17,14 @@ export default function Rooms() {
     return (
         <>
             <div className="container">
-                {rooms && rooms.map((room, index) =>
-                    <div className="room" key={index}>
+                {rooms && rooms.map((room, roomIndex) =>
+                    <div className="room" key={roomIndex}>
                         <h2>{room.name}</h2>
                         <p>House: {room.houseType}</p>
                         <p>Capacity: {room.capacity} student(s)</p>
                         <p>Students in this room: </p>
-                        {room.residents.map((resident) =>
-                            <span>{resident.fullName}</span>
+                        {room.residents.map((resident, residentIndex) =>
+                            <span key={residentIndex}>{resident.fullName}</span>
                         )}
                         <p>This room is
                             <strong>{room.listSize === 0 ? " empty" : ""}</strong>

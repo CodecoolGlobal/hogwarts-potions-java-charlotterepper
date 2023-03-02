@@ -1,5 +1,6 @@
 package com.codecool.hogwartspotions.controller;
 
+import com.codecool.hogwartspotions.data_sample.RoomCreator;
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Student;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
     private final StudentService studentService;
+    private final RoomCreator roomCreator;
 
     @GetMapping
     public List<Student> allStudents() {
@@ -33,7 +35,7 @@ public class StudentController {
         Student student = new Student(map.get("student-first-name").get(0),
                                       map.get("student-last-name").get(0),
                                       HouseType.valueOf(map.get("student-house-type").get(0).toUpperCase()),
-                                      PetType.valueOf(map.get("student-pet-type").get(0).toUpperCase()));
+                roomCreator.createAndSaveRandomRoom(), PetType.valueOf(map.get("student-pet-type").get(0).toUpperCase()));
         studentService.addStudent(student);
         return new RedirectView("http://localhost:3000/students/");
     }

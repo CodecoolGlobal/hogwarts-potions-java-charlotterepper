@@ -17,6 +17,15 @@ export default function Potions() {
     return (
         <>
             <div className="container">
+                <div className="room">
+                    <h2>Brew Potion</h2>
+                    <form method="POST" action="http://localhost:8080/potions/" id="potion-form">
+                        <label htmlFor="ingredients">Ingredients:</label> <br/><br/>
+                        <textarea name="ingredients" rows={4} cols={40}></textarea> <br/><br/>
+                        <button type="submit">Brew Potion</button>
+                    </form>
+                </div>
+
                 {potions && potions.map((potion, index) =>
                     <div className="room" key={index}>
                         <h2>{potion.name}</h2>
