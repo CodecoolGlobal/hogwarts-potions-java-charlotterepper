@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import Nav from "./Nav";
 
 export default function Rooms() {
     const [rooms, setRooms] = useState(null);
@@ -17,17 +16,12 @@ export default function Rooms() {
 
     return (
         <>
-            <Nav title="All Rooms"/>
             <div className="container">
-                {rooms && rooms.map((room, index) =>
-                    <div className="room" key={index}>
+                {rooms && rooms.map((room, roomIndex) =>
+                    <div className="room" key={roomIndex}>
                         <h2>{room.name}</h2>
                         <p>House: {room.houseType}</p>
                         <p>Capacity: {room.capacity} student(s)</p>
-                        <p>Students in this room: </p>
-                        {room.residents.map((resident) =>
-                            <span>{resident.fullName}</span>
-                        )}
                         <p>This room is
                             <strong>{room.listSize === 0 ? " empty" : ""}</strong>
                             <strong>{room.listSize === room.capacity ? " full" : ""}</strong>

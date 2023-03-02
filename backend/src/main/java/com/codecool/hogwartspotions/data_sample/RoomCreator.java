@@ -21,17 +21,9 @@ public class RoomCreator {
         random = new Random();
     }
 
-    public Room createCustomRoom(String name, HouseType houseType, int capacity) {
-        return new Room(name, houseType, capacity);
-    }
-
-    public Room createCustomRoomWithId(String name, HouseType houseType, int capacity) {
-        return new Room(name, houseType, capacity);
-    }
-
-    public void createRandomRoom() {
-        roomRepository.save(new Room(faker.harryPotter().location() + " Room", getRandomHouseType(),
-                new Random().nextInt(10 - 1) + 1));
+    public Room createAndSaveRandomRoom() {
+        return roomRepository.save(new Room(faker.harryPotter().location() + " Room", getRandomHouseType(),
+                random.nextInt(10 - 1) + 1));
     }
 
     public HouseType getRandomHouseType() {

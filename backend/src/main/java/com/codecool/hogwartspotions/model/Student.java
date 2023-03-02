@@ -1,5 +1,6 @@
 package com.codecool.hogwartspotions.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,8 +13,6 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Student {
-
-//    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +22,7 @@ public class Student {
     private String lastName;
     @NonNull
     private HouseType houseType;
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

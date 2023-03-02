@@ -1,5 +1,6 @@
 package com.codecool.hogwartspotions.service;
 
+import com.codecool.hogwartspotions.exceptions.ResourceNotFoundException;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,13 +26,15 @@ public class RoomService {
     }
 
     public Room getRoomById(Long id) {
-        return roomRepository.findById(id).get();
+        return roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
     public void updateRoomById(Long id, Room updatedRoom) {
-        roomRepository.deleteById(id);
-        updatedRoom.setId(id);
-        roomRepository.save(updatedRoom);
+        Room oldRoom = roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        oldRoom.setName(updatedRoom.getName());
+        oldRoom.setHouseType(updatedRoom.getHouseType());
+        oldRoom.setCapacity(updatedRoom.getCapacity());
+        roomRepository.save(oldRoom);
     }
 
     public void deleteRoomById(Long id) {
