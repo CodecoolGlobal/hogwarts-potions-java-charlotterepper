@@ -24,7 +24,6 @@ public class Student {
     private HouseType houseType;
     @NonNull
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "room_id")
     private Room room;
     @NonNull

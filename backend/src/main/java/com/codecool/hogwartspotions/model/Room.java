@@ -24,6 +24,7 @@ public class Room {
     private HouseType houseType;
     @NonNull
     private Integer capacity;
+    @JsonIgnore
     @OneToMany(mappedBy = "room")
     private Set<Student> residents;
 

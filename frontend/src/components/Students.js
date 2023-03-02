@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function Rooms() {
     const [students, setStudents] = useState(null);
     const [rooms, setRooms] = useState(null);
     const [roomId, setRoomId] = useState(-1);
     const addRoomLink = "http://localhost:8080/students/";
+    const navigate = useNavigate();
 
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/")
@@ -32,11 +34,8 @@ export default function Rooms() {
     }
 
     const addRoom = (studentId, roomId) => {
-        fetch(addRoomLink + studentId + "/" + roomId)
-            .then(response => response.json())
-            .then(data => {
-                setRoomId(-1);
-            })
+        fetch(addRoomLink + studentId + "/" + roomId, {method: "POST"})
+            .then(() => navigate(0));
     }
 
     return (
