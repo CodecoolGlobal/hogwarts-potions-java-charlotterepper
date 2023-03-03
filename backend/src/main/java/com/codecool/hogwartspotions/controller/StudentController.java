@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,11 +30,12 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public RedirectView addStudent(@RequestBody MultiValueMap<String, String> map) {
-        Student student = new Student(map.get("student-first-name").get(0),
-                                      map.get("student-last-name").get(0),
-                                      HouseType.valueOf(map.get("student-house-type").get(0).toUpperCase()),
-                                      PetType.valueOf(map.get("student-pet-type").get(0).toUpperCase()));
+    public RedirectView addStudent(@RequestParam Map<String, String> map) {
+        System.out.println(map.get("student-house-type"));
+        Student student = new Student(map.get("student-first-name"),
+                                      map.get("student-last-name"),
+                                      HouseType.valueOf(map.get("student-house-type").toUpperCase()),
+                                      PetType.valueOf(map.get("student-pet-type").toUpperCase()));
         studentService.addStudent(student);
         return new RedirectView("http://localhost:3000/students/");
     }

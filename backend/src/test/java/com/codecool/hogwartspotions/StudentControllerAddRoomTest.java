@@ -13,6 +13,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,10 +29,11 @@ public class StudentControllerAddRoomTest {
     StudentRepository studentRepository;
 
     @Autowired
-    StudentController studentController;
+    RoomRepository roomRepository;
 
     @Autowired
-    RoomRepository roomRepository;
+    StudentController studentController;
+
 
     static {
         System.setProperty("PSQL_USERNAME", "charlotte");
@@ -48,5 +55,25 @@ public class StudentControllerAddRoomTest {
 //        assertNotNull(updatedStudent.getRoom());
 //        assertEquals(room.getId(), updatedStudent.getRoom().getId());
 
+    }
+
+    @Test
+    void addStudent() {
+        // Arrange
+        Map<String, String> map = new HashMap<>();
+        map.put("student-first-name", "A");
+        map.put("student-last-name", "B");
+        map.put("student-house-type", "gryffindor");
+        map.put("student-pet-type", "cat");
+
+        // Act
+        studentController.addStudent(map);
+
+        // Assert
+        Student student = studentRepository.findAll().get(0);
+        assertEquals("A", student.getFirstName());
+        assertEquals("B", student.getLastName());
+        assertEquals("gryffindor", student.getHouseType().getHouseName().toLowerCase());
+        assertEquals("cat", student.getPetType().getPetName().toLowerCase());
     }
 }

@@ -1,8 +1,17 @@
 package com.codecool.hogwartspotions.model;
 
 public enum PetType {
-    CAT,
-    RAT,
-    OWL,
-    NONE
+    CAT("cat"),
+    RAT("rat"),
+    OWL("owl"),
+    NONE("none");
+
+    private final String petName;
+    PetType(String petName) {
+        this.petName = petName;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
 }
