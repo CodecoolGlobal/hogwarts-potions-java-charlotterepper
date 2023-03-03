@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -48,10 +49,10 @@ public class RoomController {
     }
 
     @PostMapping("/create")
-    public RedirectView createRoom(@RequestBody MultiValueMap<String, String> map) {
-        Room room = new Room(map.get("room-name").get(0),
-                             HouseType.valueOf(map.get("room-house").get(0).toUpperCase()),
-                             Integer.parseInt(map.get("room-capacity").get(0)));
+    public RedirectView createRoom(@RequestParam Map<String, String> map) {
+        Room room = new Room(map.get("room-name"),
+                             HouseType.valueOf(map.get("room-house").toUpperCase()),
+                             Integer.parseInt(map.get("room-capacity")));
         roomService.addRoom(room);
         return new RedirectView("http://localhost:3000/rooms/");
     }
