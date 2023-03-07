@@ -12,6 +12,7 @@ function App() {
         <Router>
             <div className="App">
                 <Routes>
+                    <Route path="/" exact element={<Rooms/>}/>
                     <Route path="/rooms" exact element={<Rooms/>}/>
                     <Route path="/students" exact element={<Students/>}/>
                     <Route path="/rooms/:id" exact element={<Room/>}/>
