@@ -51,7 +51,6 @@ public class StudentControllerAddTest {
 //        assertNotNull(room);
 //        assertNotNull(updatedStudent.getRoom());
 //        assertEquals(room.getId(), updatedStudent.getRoom().getId());
-
     }
 
     @Test
