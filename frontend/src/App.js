@@ -15,6 +15,7 @@ function App() {
             <div className="App">
                 <Nav/>
                 <Routes>
+                    <Route path="/" exact element={<Rooms/>}/>
                     <Route path="/rooms" exact element={<Rooms/>}/>
                     <Route path="/students" exact element={<Students/>}/>
                     <Route path="/rooms/:id" exact element={<Room/>}/>
