@@ -1,4 +1,4 @@
-export default function Rooms(props) {
+export default function Nav(props) {
 
     const roomLink = <a href="http://localhost:3000/rooms" id="nav-link">All rooms</a>;
     const availableRoomsLink = <a href="http://localhost:3000/rooms/available" id="nav-link">Available Rooms</a>;
@@ -6,21 +6,15 @@ export default function Rooms(props) {
     const studentLink = <a href="http://localhost:3000/students" id="nav-link">All Students</a>;
     const addStudentLink = <a href="http://localhost:3000/students/add" id="nav-link">Add Student</a>;
 
-    function showAccordingLinks(name) {
-        if (name === "All Students") {
-            return <>{roomLink} {addStudentLink}</>;
-        }
-        if (name === "All Rooms") {
-            return <>{studentLink} {createRoomLink} {availableRoomsLink}</>;
-        }
-        return <>{roomLink}{studentLink}</>;
-    }
+    const links = [roomLink, availableRoomsLink, createRoomLink, studentLink, addStudentLink];
 
     return (
         <>
             <nav>
-                <h1>{props.title}</h1>
-                {showAccordingLinks(props.title)}
+                <h1>Hogwarts Potions</h1>
+                {links && links.map((link, linkIndex) =>
+                    <p>{link}</p>
+                )}
             </nav>
         </>
     );
