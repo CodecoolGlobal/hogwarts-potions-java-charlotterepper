@@ -25,7 +25,7 @@ public class PotionController {
 
     @PostMapping
     public void brewPotion() {
-        
+
     }
 
     @GetMapping("/{id}")
