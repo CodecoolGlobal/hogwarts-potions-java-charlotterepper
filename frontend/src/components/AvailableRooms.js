@@ -15,6 +15,9 @@ export default function AvailableRooms() {
     }, [])
 
     function showAvailableRooms(room) {
+        if (room.listSize === room.capacity) {
+            return "Room full";
+        }
         if (room.listSize === 0 || room.listSize < room.capacity) {
             return <>
                 <h2>{room.name}</h2>
@@ -33,11 +36,20 @@ export default function AvailableRooms() {
     return (
         <>
             <div className="container">
-                {rooms && rooms.map((room, index) =>
-                    <div className="room" key={index}>
-                        {showAvailableRooms(room)}
-                        <a href={roomLink + room.id} id="all-rooms-btn">Room Details</a>
-                    </div>
+                {rooms && rooms.map((room, index) => {
+                    if (showAvailableRooms(room) === "Room full") {
+                        return ("");
+                    }
+                    if (showAvailableRooms(room) === "No available rooms") {
+                        return ("No available rooms");
+                    }
+                    return (
+                        <div className="room" key={index}>
+                            {showAvailableRooms(room)}
+                            <a href={roomLink + room.id} id="all-rooms-btn">Room Details</a>
+                        </div>
+                    );
+                }
                 )}
             </div>
 
