@@ -9,7 +9,6 @@ export default function Rooms() {
         fetch("http://localhost:8080/students/order-first-name")
             .then((response) => response.json())
             .then(data => {
-                console.log(data)
                 setStudents(data);
             });
     }
@@ -46,8 +45,6 @@ export default function Rooms() {
     }
 
     async function handleAddRoom(event, studentId) {
-        console.log("StudentId: " + studentId);
-        console.log("RoomId: " + roomId);
         event.preventDefault();
         const result = await addRoom(studentId, roomId);
         if (result && result.status === 200) {
