@@ -38,18 +38,9 @@ public class RoomController {
         roomService.deleteRoomById(id);
     }
 
-    @GetMapping("/create")
-    public void getCreateRoom() {
-
-    }
-
-    @PostMapping("/create")
-    public RedirectView createRoom(@RequestBody MultiValueMap<String, String> map) {
-        Room room = new Room(map.get("room-name").get(0),
-                             HouseType.valueOf(map.get("room-house").get(0).toUpperCase()),
-                             Integer.parseInt(map.get("room-capacity").get(0)));
-        roomService.addRoom(room);
-        return new RedirectView("http://localhost:3000/rooms/");
+    @PostMapping("/add")
+    public RoomDTO addRoom(@RequestBody RoomDTO roomDTO) {
+        return roomService.addRoom(roomDTO);
     }
 
     @GetMapping("/available")

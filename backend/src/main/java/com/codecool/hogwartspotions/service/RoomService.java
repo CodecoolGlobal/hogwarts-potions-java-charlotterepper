@@ -22,8 +22,10 @@ public class RoomService {
         return roomRepository.findAll();
     }
 
-    public void addRoom(Room room) {
+    public RoomDTO addRoom(RoomDTO roomDTO) {
+        Room room = roomDTOMapper.toRoom(roomDTO);
         roomRepository.save(room);
+        return roomDTOMapper.toRoomDTO(room);
     }
 
     public void addStudentToRoom(Long roomId, Long studentId) {

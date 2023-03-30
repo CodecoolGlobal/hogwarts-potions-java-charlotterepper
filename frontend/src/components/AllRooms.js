@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export default function Rooms() {
+export default function AllRooms() {
     const [rooms, setRooms] = useState(null);
     const roomLink = "http://localhost:3000/rooms/";
     const fetchData = () => {

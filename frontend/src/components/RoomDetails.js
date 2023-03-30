@@ -33,7 +33,7 @@ export default function Rooms() {
         }
     }
 
-    async function handleSubmit(event) {
+    async function handleUpdate(event) {
         event.preventDefault();
         const result = await updateRoom();
         if (result && result.status === 200) {
@@ -94,12 +94,10 @@ export default function Rooms() {
                         <strong>{room.listSize === room.capacity ? " full" : ""}</strong>
                         <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
                     </p>
-
                     {room.listSize === 0
                         ?  <button onClick={handleDelete}>Delete Room</button>
                         : ""
                     }
-
                 </div>
                 <div className="room">
                     <h2>Update Room #{room.id}</h2>
@@ -117,7 +115,7 @@ export default function Rooms() {
                         <input onChange={(e) => updateData({capacity: e.target.value})} type="number" min="1" max="1000" name="room-capacity" id="room-capacity"
                                required/>
                         <br/>
-                        <button onClick={handleSubmit}>Update Room</button>
+                        <button onClick={handleUpdate}>Update Room</button>
                     </form>
                 </div>
             </div>
