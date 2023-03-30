@@ -5,6 +5,7 @@ import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Room;
 
 public class StudentDTO {
+    private Long id;
     private String firstName;
 
     private String lastName;
@@ -14,12 +15,21 @@ public class StudentDTO {
 
     private PetType petType;
 
-    public StudentDTO(String firstName, String lastName, HouseType houseType, Room room, PetType petType) {
+    public StudentDTO(Long id, String firstName, String lastName, HouseType houseType, Room room, PetType petType) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseType = houseType;
         this.room = room;
         this.petType = petType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

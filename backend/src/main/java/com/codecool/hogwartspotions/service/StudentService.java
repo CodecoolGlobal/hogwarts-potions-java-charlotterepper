@@ -21,8 +21,8 @@ public class StudentService {
     private final RoomDTOMapper roomDTOMapper;
 
 
-    public List<StudentDTO> getAllStudents() {
-        List<Student> students = studentRepository.findAll();
+    public List<StudentDTO> getStudentsOrderByFirstName() {
+        List<Student> students = studentRepository.findAllByOrderByFirstName();
         return studentDTOMapper.toStudentDTOList(students);
     }
 

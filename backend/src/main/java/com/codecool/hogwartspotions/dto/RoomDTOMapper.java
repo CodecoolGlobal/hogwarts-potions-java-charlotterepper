@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 public class RoomDTOMapper {
 
     public Room toRoom(RoomDTO roomDTO) {
-        return new Room(roomDTO.getName(), roomDTO.getHouseType(), roomDTO.getCapacity());
+        return new Room(roomDTO.getId(), roomDTO.getName(), roomDTO.getHouseType(), roomDTO.getCapacity(),
+                roomDTO.getResidents());
     }
 
     public RoomDTO toRoomDTO(Room room) {

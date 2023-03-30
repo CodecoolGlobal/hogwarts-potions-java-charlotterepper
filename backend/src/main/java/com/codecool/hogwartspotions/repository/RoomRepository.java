@@ -1,6 +1,7 @@
 package com.codecool.hogwartspotions.repository;
 
 import com.codecool.hogwartspotions.model.Room;
+import com.codecool.hogwartspotions.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,5 +14,7 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
             "WHERE r.capacity > (SELECT COUNT(*) FROM student s WHERE s.room_id = r.id)" +
             " AND (SELECT COUNT(*) FROM student s WHERE s.room_id = r.id) >= 0", nativeQuery = true)
     List<Room> findAvailableRooms();
+
+    List<Room> findAllByOrderByName();
 
 }

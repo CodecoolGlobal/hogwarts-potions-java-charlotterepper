@@ -17,13 +17,13 @@ public class StudentDTOMapper {
     }
 
     public Student toStudent(StudentDTO studentDTO) {
-        return new Student(studentDTO.getFirstName(), studentDTO.getLastName(), studentDTO.getHouseType(),
+        return new Student(studentDTO.getId(), studentDTO.getFirstName(), studentDTO.getLastName(), studentDTO.getHouseType(),
                 roomCreator.createAndSaveRandomRoom(), studentDTO.getPetType());
     }
 
     public StudentDTO toStudentDTO(Student student) {
-        return new StudentDTO(student.getFirstName(), student.getLastName(), student.getHouseType(), student.getRoom(),
-                student.getPetType());
+        return new StudentDTO(student.getId(), student.getFirstName(), student.getLastName(), student.getHouseType(),
+                student.getRoom(), student.getPetType());
     }
 
     public List<StudentDTO> toStudentDTOList(List<Student> students) {

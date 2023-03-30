@@ -6,9 +6,10 @@ export default function Rooms() {
     const [roomId, setRoomId] = useState(-1);
 
     const fetchAllStudents = () => {
-        fetch("http://localhost:8080/students")
+        fetch("http://localhost:8080/students/order-first-name")
             .then((response) => response.json())
             .then(data => {
+                console.log(data)
                 setStudents(data);
             });
     }

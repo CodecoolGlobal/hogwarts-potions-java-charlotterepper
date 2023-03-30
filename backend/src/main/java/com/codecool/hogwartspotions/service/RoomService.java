@@ -16,8 +16,8 @@ public class RoomService {
     private final RoomRepository roomRepository;
     private final RoomDTOMapper roomDTOMapper;
 
-    public List<RoomDTO> getAllRooms() {
-        List<Room> rooms = roomRepository.findAll();
+    public List<RoomDTO> getAllRoomsOrderByName() {
+        List<Room> rooms = roomRepository.findAllByOrderByName();
         return roomDTOMapper.toRoomDTOList(rooms);
     }
 
