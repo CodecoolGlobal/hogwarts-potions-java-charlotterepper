@@ -1,5 +1,7 @@
 package com.codecool.hogwartspotions.service;
 
+import com.codecool.hogwartspotions.dto.RoomDTO;
+import com.codecool.hogwartspotions.dto.RoomDTOMapper;
 import com.codecool.hogwartspotions.dto.StudentDTO;
 import com.codecool.hogwartspotions.dto.StudentDTOMapper;
 import com.codecool.hogwartspotions.model.Room;
@@ -16,6 +18,7 @@ public class StudentService {
     private final StudentRepository studentRepository;
     private final RoomService roomService;
     private final StudentDTOMapper studentDTOMapper;
+    private final RoomDTOMapper roomDTOMapper;
 
 
     public List<Student> getAllStudents() {
@@ -30,7 +33,8 @@ public class StudentService {
 
     public void addRoomToStudent(Long studentId, Long roomId) {
         Student student = getStudentById(studentId);
-        Room room = roomService.getRoomById(roomId);
+        RoomDTO roomDTO = roomService.getRoomById(roomId);
+        Room room = roomDTOMapper.toRoom(roomDTO);
         student.setRoom(room);
         studentRepository.save(student);
     }

@@ -5,7 +5,6 @@ import com.codecool.hogwartspotions.dto.RoomDTOMapper;
 import com.codecool.hogwartspotions.exceptions.ResourceNotFoundException;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.repository.RoomRepository;
-import com.codecool.hogwartspotions.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoomService {
     private final RoomRepository roomRepository;
-    private final StudentRepository studentRepository;
     private final RoomDTOMapper roomDTOMapper;
 
-    public List<Room> getAllRooms() {
-        return roomRepository.findAll();
+    public List<RoomDTO> getAllRooms() {
+        List<Room> rooms = roomRepository.findAll();
+        return roomDTOMapper.toRoomDTOList(rooms);
     }
 
     public RoomDTO addRoom(RoomDTO roomDTO) {
@@ -32,8 +31,9 @@ public class RoomService {
         //TODO
     }
 
-    public Room getRoomById(Long id) {
-        return roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    public RoomDTO getRoomById(Long id) {
+        Room room = roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        return roomDTOMapper.toRoomDTO(room);
     }
 
     public RoomDTO updateRoomById(Long id, RoomDTO roomDTO) {

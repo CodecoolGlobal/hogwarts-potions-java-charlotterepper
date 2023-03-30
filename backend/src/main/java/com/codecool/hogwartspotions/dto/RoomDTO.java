@@ -3,14 +3,20 @@ package com.codecool.hogwartspotions.dto;
 import com.codecool.hogwartspotions.model.HouseType;
 
 public class RoomDTO {
+    private Long id;
     private String name;
     private HouseType houseType;
     private Integer capacity;
 
-    public RoomDTO(String name, HouseType houseType, Integer capacity) {
+    public RoomDTO(Long id, String name, HouseType houseType, Integer capacity) {
+        this.id = id;
         this.name = name;
         this.houseType = houseType;
         this.capacity = capacity;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -23,6 +29,10 @@ public class RoomDTO {
 
     public Integer getCapacity() {
         return capacity;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setName(String name) {

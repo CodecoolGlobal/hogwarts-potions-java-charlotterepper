@@ -3,6 +3,9 @@ package com.codecool.hogwartspotions.dto;
 import com.codecool.hogwartspotions.model.Room;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class RoomDTOMapper {
 
@@ -11,6 +14,12 @@ public class RoomDTOMapper {
     }
 
     public RoomDTO toRoomDTO(Room room) {
-        return new RoomDTO(room.getName(), room.getHouseType(), room.getCapacity());
+        return new RoomDTO(room.getId(), room.getName(), room.getHouseType(), room.getCapacity());
+    }
+
+    public List<RoomDTO> toRoomDTOList(List<Room> rooms) {
+        return rooms.stream()
+                .map(this::toRoomDTO)
+                .collect(Collectors.toList());
     }
 }

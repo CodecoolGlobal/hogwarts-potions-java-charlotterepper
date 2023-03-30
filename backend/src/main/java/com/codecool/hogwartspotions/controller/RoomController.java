@@ -1,13 +1,10 @@
 package com.codecool.hogwartspotions.controller;
 
 import com.codecool.hogwartspotions.dto.RoomDTO;
-import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.service.RoomService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -19,12 +16,12 @@ public class RoomController {
     private final RoomService roomService;
 
     @GetMapping
-    public List<Room> rooms() {
+    public List<RoomDTO> rooms() {
         return roomService.getAllRooms();
     }
 
     @GetMapping("/{id}")
-    public Room getRoom(@PathVariable("id") Long id) {
+    public RoomDTO getRoom(@PathVariable("id") Long id) {
         return roomService.getRoomById(id);
     }
 
@@ -44,7 +41,7 @@ public class RoomController {
     }
 
     @GetMapping("/available")
-    public List<Room> getAvailableRooms() {
+    public List<RoomDTO> getAvailableRooms() {
         return roomService.getAllRooms();
     }
 }
