@@ -1,6 +1,8 @@
 package com.codecool.hogwartspotions.controller;
 
 import com.codecool.hogwartspotions.data_sample.RoomCreator;
+import com.codecool.hogwartspotions.dto.StudentDTO;
+import com.codecool.hogwartspotions.dto.StudentDTOMapper;
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Student;
@@ -18,7 +20,7 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
     private final StudentService studentService;
-    private final RoomCreator roomCreator;
+
 
     @GetMapping
     public List<Student> allStudents() {
@@ -31,18 +33,12 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public RedirectView addStudent(@RequestBody MultiValueMap<String, String> map) {
-        Student student = new Student(map.get("student-first-name").get(0),
-                                      map.get("student-last-name").get(0),
-                                      HouseType.valueOf(map.get("student-house-type").get(0).toUpperCase()),
-                roomCreator.createAndSaveRandomRoom(), PetType.valueOf(map.get("student-pet-type").get(0).toUpperCase()));
-        studentService.addStudent(student);
-        return new RedirectView("http://localhost:3000/students/");
+    public StudentDTO addStudent(@RequestBody StudentDTO studentDTO) {
+        return studentService.addStudent(studentDTO);
     }
 
     @PostMapping("/{studentId}/{roomId}")
-    public void addRoomToStudent(@PathVariable("studentId") String studentId,
-                                 @PathVariable("roomId") String roomId) {
+    public void addRoomToStudent(@PathVariable("studentId") String studentId, @PathVariable("roomId") String roomId) {
         studentService.addRoomToStudent(Long.parseLong(studentId), Long.parseLong(roomId));
     }
 }

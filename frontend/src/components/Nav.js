@@ -1,4 +1,4 @@
-export default function Nav(props) {
+export default function Nav() {
 
     const roomLink = <a href="http://localhost:3000/rooms" id="nav-link">All rooms</a>;
     const availableRoomsLink = <a href="http://localhost:3000/rooms/available" id="nav-link">Available Rooms</a>;
@@ -13,7 +13,7 @@ export default function Nav(props) {
             <nav>
                 <h1>Hogwarts Potions</h1>
                 {links && links.map((link, linkIndex) =>
-                    <p>{link}</p>
+                    <p key={linkIndex}>{link}</p>
                 )}
             </nav>
         </>
