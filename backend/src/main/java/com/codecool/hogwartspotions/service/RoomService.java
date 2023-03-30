@@ -21,6 +21,11 @@ public class RoomService {
         return roomDTOMapper.toRoomDTOList(rooms);
     }
 
+    public List<RoomDTO> getAllAvailableRooms() {
+        List<Room> rooms = roomRepository.findAvailableRooms();
+        return roomDTOMapper.toRoomDTOList(rooms);
+    }
+
     public RoomDTO addRoom(RoomDTO roomDTO) {
         Room room = roomDTOMapper.toRoom(roomDTO);
         roomRepository.save(room);

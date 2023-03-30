@@ -14,7 +14,7 @@ public class RoomDTOMapper {
     }
 
     public RoomDTO toRoomDTO(Room room) {
-        return new RoomDTO(room.getId(), room.getName(), room.getHouseType(), room.getCapacity());
+        return new RoomDTO(room.getId(), room.getName(), room.getHouseType(), room.getCapacity(), room.getResidents());
     }
 
     public List<RoomDTO> toRoomDTOList(List<Room> rooms) {

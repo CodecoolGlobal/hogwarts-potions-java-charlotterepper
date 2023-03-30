@@ -90,11 +90,11 @@ export default function Rooms() {
                     <p>House: {room.houseType}</p>
                     <p>Capacity: {room.capacity} student(s)</p>
                     <p>This room is
-                        <strong>{room.listSize === 0 ? " empty" : ""}</strong>
-                        <strong>{room.listSize === room.capacity ? " full" : ""}</strong>
-                        <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
+                        <strong>{room.residents.length === 0 ? " empty" : ""}</strong>
+                        <strong>{room.residents.length === room.capacity ? " full" : ""}</strong>
+                        <strong>{room.residents.length > 0 && room.residents.length < room.capacity ? " occupied" : ""}</strong>
                     </p>
-                    {room.listSize === 0
+                    {room.residents.length === 0
                         ?  <button onClick={handleDelete}>Delete Room</button>
                         : ""
                     }

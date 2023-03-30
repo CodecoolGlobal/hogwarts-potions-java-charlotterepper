@@ -1,7 +1,6 @@
 package com.codecool.hogwartspotions.controller;
 
 import com.codecool.hogwartspotions.dto.RoomDTO;
-import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +41,6 @@ public class RoomController {
 
     @GetMapping("/available")
     public List<RoomDTO> getAvailableRooms() {
-        return roomService.getAllRooms();
+        return roomService.getAllAvailableRooms();
     }
 }

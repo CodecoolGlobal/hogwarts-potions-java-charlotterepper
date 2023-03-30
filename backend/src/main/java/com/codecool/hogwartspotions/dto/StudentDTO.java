@@ -2,6 +2,7 @@ package com.codecool.hogwartspotions.dto;
 
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.PetType;
+import com.codecool.hogwartspotions.model.Room;
 
 public class StudentDTO {
     private String firstName;
@@ -9,13 +10,15 @@ public class StudentDTO {
     private String lastName;
 
     private HouseType houseType;
+    private Room room;
 
     private PetType petType;
 
-    public StudentDTO(String firstName, String lastName, HouseType houseType, PetType petType) {
+    public StudentDTO(String firstName, String lastName, HouseType houseType, Room room, PetType petType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseType = houseType;
+        this.room = room;
         this.petType = petType;
     }
 
@@ -41,6 +44,14 @@ public class StudentDTO {
 
     public void setHouseType(HouseType houseType) {
         this.houseType = houseType;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public PetType getPetType() {

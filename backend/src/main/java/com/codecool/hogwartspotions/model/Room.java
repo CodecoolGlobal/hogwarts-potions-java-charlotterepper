@@ -28,7 +28,7 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Student> residents;
 
-    public int getListSize() {
+    public int getNumberOfResidents() {
         return residents.size();
     }
 }
