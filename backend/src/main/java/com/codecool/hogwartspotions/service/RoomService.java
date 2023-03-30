@@ -1,5 +1,7 @@
 package com.codecool.hogwartspotions.service;
 
+import com.codecool.hogwartspotions.dto.RoomDTO;
+import com.codecool.hogwartspotions.dto.RoomDTOMapper;
 import com.codecool.hogwartspotions.exceptions.ResourceNotFoundException;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.repository.RoomRepository;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final RoomDTOMapper roomDTOMapper;
 
     public List<Room> getAllRooms() {
         return roomRepository.findAll();
@@ -29,12 +32,14 @@ public class RoomService {
         return roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
-    public void updateRoomById(Long id, Room updatedRoom) {
+    public RoomDTO updateRoomById(Long id, RoomDTO roomDTO) {
         Room oldRoom = roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        Room updatedRoom = roomDTOMapper.toRoom(roomDTO);
         oldRoom.setName(updatedRoom.getName());
         oldRoom.setHouseType(updatedRoom.getHouseType());
         oldRoom.setCapacity(updatedRoom.getCapacity());
         roomRepository.save(oldRoom);
+        return roomDTOMapper.toRoomDTO(oldRoom);
     }
 
     public void deleteRoomById(Long id) {

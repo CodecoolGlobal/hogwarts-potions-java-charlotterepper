@@ -32,6 +32,7 @@ export default function AddStudent() {
         event.preventDefault();
         const result = await addStudent();
         if (result && result.status === 200) {
+            alert("New student added!")
             navigate("/students");
         }
     }
