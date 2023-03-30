@@ -1,4 +1,4 @@
-package com.codecool.hogwartspotions;
+package com.codecool.hogwartspotions.controller;
 
 import com.codecool.hogwartspotions.controller.RoomController;
 import com.codecool.hogwartspotions.model.HouseType;
