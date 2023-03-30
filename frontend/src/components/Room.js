@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function Rooms() {
     const [room, setRoom] = useState(null);
     const allRoomsEndpoint = "http://localhost:8080/rooms/";
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const [data, setData] = useState({name: "", houseType: "GRYFFINDOR", capacity: ""});
 
@@ -41,6 +42,30 @@ export default function Rooms() {
         }
     }
 
+    async function deleteRoom() {
+        try {
+            console.log(JSON.stringify(data))
+            const result = await fetch("http://localhost:8080/rooms/delete/" + id, {
+                method: "DELETE"
+            })
+            if (result.status !== 200) {
+                alert("An error has occurred: " + result.status);
+            }
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function handleDelete(event) {
+        event.preventDefault();
+        const result = await deleteRoom();
+        if (result && result.status === 200) {
+            alert("Room is deleted!")
+            navigate("/rooms");
+        }
+    }
+
     const fetchRoom = () => {
         fetch(allRoomsEndpoint + id)
             .then((response) => response.json())
@@ -57,8 +82,6 @@ export default function Rooms() {
         return <h1>Loading...</h1>;
     }
 
-    const roomId = room.id;
-
     return (
         <>
             <div className="container" id="normal-direction">
@@ -72,9 +95,11 @@ export default function Rooms() {
                         <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
                     </p>
 
-                    <form method="POST" action={allRoomsEndpoint + "delete/" + roomId}>
-                        <button type="submit">Delete Room</button>
-                    </form>
+                    {room.listSize === 0
+                        ?  <button onClick={handleDelete}>Delete Room</button>
+                        : ""
+                    }
+
                 </div>
                 <div className="room">
                     <h2>Update Room #{room.id}</h2>

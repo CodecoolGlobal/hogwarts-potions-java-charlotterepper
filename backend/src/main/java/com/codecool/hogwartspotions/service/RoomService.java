@@ -5,6 +5,7 @@ import com.codecool.hogwartspotions.dto.RoomDTOMapper;
 import com.codecool.hogwartspotions.exceptions.ResourceNotFoundException;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.repository.RoomRepository;
+import com.codecool.hogwartspotions.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final StudentRepository studentRepository;
     private final RoomDTOMapper roomDTOMapper;
 
     public List<Room> getAllRooms() {

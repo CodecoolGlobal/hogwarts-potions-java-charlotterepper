@@ -33,10 +33,9 @@ public class RoomController {
         return roomService.updateRoomById(id, roomDTO);
     }
 
-    @PostMapping("/delete/{id}")
-    public RedirectView deleteRoom(@PathVariable Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteRoom(@PathVariable Long id) {
         roomService.deleteRoomById(id);
-        return new RedirectView("http://localhost:3000/rooms/");
     }
 
     @GetMapping("/create")
