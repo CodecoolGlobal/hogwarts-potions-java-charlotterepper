@@ -8,7 +8,6 @@ export default function AllRooms() {
             .then((response) => response.json())
             .then(data => {
                 setRooms(data);
-                console.log(data)
             });
     }
     useEffect(() => {
