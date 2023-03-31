@@ -1,6 +1,5 @@
 package com.codecool.hogwartspotions.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,8 +27,4 @@ public class Student {
     private Room room;
     @NonNull
     private PetType petType;
-
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
 }

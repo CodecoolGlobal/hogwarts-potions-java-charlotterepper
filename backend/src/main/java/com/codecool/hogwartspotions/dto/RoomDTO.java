@@ -59,4 +59,15 @@ public class RoomDTO {
     public void setResidents(Set<Student> residents) {
         this.residents = residents;
     }
+
+    @Override
+    public String toString() {
+        return "RoomDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", houseType=" + houseType +
+                ", capacity=" + capacity +
+                ", residents=" + residents +
+                '}';
+    }
 }

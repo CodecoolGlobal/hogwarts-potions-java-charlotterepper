@@ -71,4 +71,16 @@ public class StudentDTO {
     public void setPetType(PetType petType) {
         this.petType = petType;
     }
+
+    @Override
+    public String toString() {
+        return "StudentDTO{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", houseType=" + houseType +
+                ", room=" + room +
+                ", petType=" + petType +
+                '}';
+    }
 }

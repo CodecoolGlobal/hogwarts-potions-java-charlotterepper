@@ -85,12 +85,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>1.7.30</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -110,6 +104,14 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>10</source>
+                    <target>10</target>
                 </configuration>
             </plugin>
         </plugins>

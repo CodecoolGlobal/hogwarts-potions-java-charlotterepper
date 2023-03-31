@@ -19,6 +19,7 @@ public class RecipeCreator {
     private final RecipeRepository recipeRepository;
 
     public Recipe getRandomRecipe() {
-        return recipeRepository.save(new Recipe(faker.ancient().titan() + " Recipe", studentCreator.getRandomStudent(), ingredientCreator.getRandomIngredients()));
+        return recipeRepository.save(new Recipe(faker.ancient().titan() + " Recipe", studentCreator.getRandomStudent(),
+                ingredientCreator.getRandomIngredients()));
     }
 }
