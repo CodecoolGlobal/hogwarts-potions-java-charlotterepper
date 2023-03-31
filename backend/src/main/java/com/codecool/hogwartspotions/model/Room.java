@@ -27,8 +27,4 @@ public class Room {
     @JsonIgnore
     @OneToMany(mappedBy = "room")
     private Set<Student> residents;
-
-    public int getNumberOfResidents() {
-        return residents.size();
-    }
 }

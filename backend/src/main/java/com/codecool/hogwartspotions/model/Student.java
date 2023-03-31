@@ -27,8 +27,4 @@ public class Student {
     private Room room;
     @NonNull
     private PetType petType;
-
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
 }

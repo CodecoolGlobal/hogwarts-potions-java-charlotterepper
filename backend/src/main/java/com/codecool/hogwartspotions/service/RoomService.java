@@ -32,10 +32,6 @@ public class RoomService {
         return roomDTOMapper.toRoomDTO(room);
     }
 
-    public void addStudentToRoom(Long roomId, Long studentId) {
-        //TODO
-    }
-
     public RoomDTO getRoomById(Long id) {
         Room room = roomRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
         return roomDTOMapper.toRoomDTO(room);
@@ -53,10 +49,5 @@ public class RoomService {
 
     public void deleteRoomById(Long id) {
         roomRepository.deleteById(id);
-    }
-
-    public List<Room> getRoomsForRatOwners() {
-        //TODO
-        return null;
     }
 }
