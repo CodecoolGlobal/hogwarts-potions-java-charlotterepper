@@ -1,13 +1,9 @@
 package com.codecool.hogwartspotions.controller;
 
-import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.Potion;
-import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.service.PotionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
