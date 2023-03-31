@@ -41,14 +41,6 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id) {
-        return studentRepository.findById(id).get();
-    }
-
-    public void updateStudentById(Long id, Student updatedStudent) {
-        //TODO
-    }
-
-    public void deleteStudentById(Long id) {
-        //TODO
+        return studentRepository.findById(id).orElseThrow();
     }
 }
