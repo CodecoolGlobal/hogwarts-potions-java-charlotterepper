@@ -1,7 +1,6 @@
 package com.codecool.hogwartspotions.dto;
 
 import com.codecool.hogwartspotions.data_sample.RoomCreator;
-import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.model.Student;
 import org.springframework.stereotype.Service;
 

@@ -14,14 +14,14 @@ import java.util.List;
 public class StudentController {
     private final StudentService studentService;
 
-    @GetMapping("order-first-name")
+    @GetMapping
     public List<StudentDTO> allStudentsOrderByFirstName() {
         return studentService.getStudentsOrderByFirstName();
     }
 
     @PostMapping("/add")
-    public StudentDTO addStudent(@RequestBody StudentDTO studentDTO) {
-        return studentService.addStudent(studentDTO);
+    public void addStudent(@RequestBody StudentDTO studentDTO) {
+        studentService.addStudent(studentDTO);
     }
 
     @PostMapping("/{studentId}/{roomId}")

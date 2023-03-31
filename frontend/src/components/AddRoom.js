@@ -2,7 +2,13 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 
 export default function AddRoom() {
-    const [data, setData] = useState({name: "", houseType: "GRYFFINDOR", capacity: ""});
+    const [data, setData] = useState({
+        id: null,
+        name: "",
+        houseType: "GRYFFINDOR",
+        capacity: "",
+        residents: null
+    });
     const navigate = useNavigate();
 
     function updateData(updatedData) {

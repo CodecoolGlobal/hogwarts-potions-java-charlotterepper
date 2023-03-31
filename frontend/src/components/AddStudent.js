@@ -3,7 +3,14 @@ import {useNavigate} from "react-router-dom";
 
 
 export default function AddStudent() {
-    const [data, setData] = useState({firstName: "", lastName: "", houseType: "GRYFFINDOR", petType: "CAT"});
+    const [data, setData] = useState({
+            id: null,
+            firstName: "",
+            lastName: "",
+            houseType: "GRYFFINDOR",
+            room: null,
+            petType: "CAT"
+        });
     const navigate = useNavigate();
 
     function updateData(updatedData) {
@@ -19,6 +26,7 @@ export default function AddStudent() {
                 },
                 body: JSON.stringify(data)
             })
+            console.log(result)
             if (result.status !== 200) {
                 alert("An error has occurred: " + result.status);
             }
