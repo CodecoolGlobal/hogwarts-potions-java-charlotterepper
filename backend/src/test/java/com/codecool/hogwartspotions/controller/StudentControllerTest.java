@@ -73,11 +73,8 @@ public class StudentControllerTest {
     void testAddRoomToStudent() throws Exception {
         Room room = new Room(1L, "A", HouseType.GRYFFINDOR, 2, Set.of());
         StudentDTO studentDTO = new StudentDTO(2L,"A", "B", HouseType.GRYFFINDOR, room, PetType.CAT);
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        mvc.perform(post("/students/" + studentDTO.getId() + "/" + room.getId())
-                        .content(objectMapper.writeValueAsString(studentDTO))
-                        .contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(post("/students/" + studentDTO.getId() + "/" + room.getId()))
                 .andExpect(status().isOk()
                 );
     }
