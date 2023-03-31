@@ -15,7 +15,7 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping
-    public List<StudentDTO> allStudentsOrderByFirstName() {
+    public List<StudentDTO> getAllStudentsOrderByFirstName() {
         return studentService.getStudentsOrderByFirstName();
     }
 
