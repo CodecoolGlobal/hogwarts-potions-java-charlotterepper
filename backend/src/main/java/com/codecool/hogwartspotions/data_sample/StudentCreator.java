@@ -23,11 +23,13 @@ public class StudentCreator {
     }
 
     public void createRandomStudent() {
-        studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
+        studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(),
+                roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
     }
 
     public Student getRandomStudent() {
-        return studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(), roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
+        return studentRepository.save(new Student(faker.name().firstName(), faker.name().lastName(), getRandomHouseType(),
+                roomCreator.createAndSaveRandomRoom(), getRandomPetType()));
     }
 
     public HouseType getRandomHouseType() {
