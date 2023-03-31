@@ -15,7 +15,7 @@ public class RoomController {
     private final RoomService roomService;
 
     @GetMapping
-    public List<RoomDTO> roomsOrderByName() {
+    public List<RoomDTO> getAllRoomsOrderByName() {
         return roomService.getAllRoomsOrderByName();
     }
 
@@ -35,8 +35,8 @@ public class RoomController {
     }
 
     @PostMapping("/add")
-    public RoomDTO addRoom(@RequestBody RoomDTO roomDTO) {
-        return roomService.addRoom(roomDTO);
+    public void addRoom(@RequestBody RoomDTO roomDTO) {
+        roomService.addRoom(roomDTO);
     }
 
     @GetMapping("/available")
