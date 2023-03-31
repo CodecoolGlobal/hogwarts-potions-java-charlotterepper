@@ -1,6 +1,5 @@
-package com.codecool.hogwartspotions;
+package com.codecool.hogwartspotions.controller;
 
-import com.codecool.hogwartspotions.controller.RoomController;
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.Room;
 import com.codecool.hogwartspotions.service.RoomService;
@@ -32,7 +31,7 @@ public class RoomControllerTest {
         // Arrange
         Room room = new Room("A", HouseType.GRYFFINDOR, 1);
         room.setId(1L);
-        when(roomService.getAllRooms()).thenReturn(List.of(room));
+        when(roomService.getAllRoomsOrderByName()).thenReturn(List.of(room));
 
         // Act
         ResultActions resultActions = mvc.perform(get("/rooms"));

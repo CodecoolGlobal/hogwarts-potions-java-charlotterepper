@@ -1,6 +1,5 @@
-package com.codecool.hogwartspotions;
+package com.codecool.hogwartspotions.controller;
 
-import com.codecool.hogwartspotions.controller.StudentController;
 import com.codecool.hogwartspotions.model.HouseType;
 import com.codecool.hogwartspotions.model.PetType;
 import com.codecool.hogwartspotions.model.Student;
@@ -33,7 +32,7 @@ public class StudentControllerTest {
         // Arrange
         Student student = new Student("A", "B", HouseType.GRYFFINDOR, PetType.CAT);
         student.setId(1L);
-        when(studentService.getAllStudents()).thenReturn(List.of(student));
+        when(studentService.getStudentsOrderByFirstName()).thenReturn(List.of(student));
 
         // Act
         ResultActions resultActions = mvc.perform(get("/students"));

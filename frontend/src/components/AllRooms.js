@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
-export default function Rooms() {
+export default function AllRooms() {
     const [rooms, setRooms] = useState(null);
-    const roomLink = "http://localhost:3000/rooms/";
     const fetchData = () => {
-        fetch("http://localhost:8080/rooms/")
+        fetch("http://localhost:8080/rooms")
             .then((response) => response.json())
             .then(data => {
                 setRooms(data);
@@ -23,11 +23,11 @@ export default function Rooms() {
                         <p>House: {room.houseType}</p>
                         <p>Capacity: {room.capacity} student(s)</p>
                         <p>This room is
-                            <strong>{room.listSize === 0 ? " empty" : ""}</strong>
-                            <strong>{room.listSize === room.capacity ? " full" : ""}</strong>
-                            <strong>{room.listSize > 0 && room.listSize < room.capacity ? " occupied" : ""}</strong>
+                            <strong>{room.residents.length === 0 ? " empty" : ""}</strong>
+                            <strong>{room.residents.length === room.capacity ? " full" : ""}</strong>
+                            <strong>{room.residents.length > 0 && room.residents.length < room.capacity ? " occupied" : ""}</strong>
                         </p>
-                        <a href={roomLink + room.id} id="all-rooms-btn">Room Details</a>
+                        <Link to={"/rooms/" + room.id}>Room Details</Link>
                     </div>
                 )}
             </div>
